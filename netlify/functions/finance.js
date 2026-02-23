@@ -29,7 +29,7 @@ export async function handler() {
     const kaufpreis = Number(rows[0].kaufpreis);
 
     const rest = kaufpreis - eingeworben;
-    const mieteProQm = (rest * 0.05) / 12 / 390;
+    const mieteProQm = ((rest * 0.05) + 25 000) / 12 / 390;
     const progress = ziel > 0 ? eingeworben / ziel : 0;
 
     return {
