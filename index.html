@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Syntopie e.V. – Wohnprojekt & Direktkredite</title>
+<meta name="description" content="Syntopie e.V. – Gemeinschaftliches Wohnprojekt in Frankfurt. Wir suchen Direktkredite für den Hauskauf.">
+<link rel="icon" href="img/logo.png">
+
+<style>
+:root{
+  --bg:#faf7f2; 
+  --paper:#ffffff; 
+  --text:#1f1f1f; 
+  --muted:#5d5d5d;
+  --brand:#2e7d32; 
+  --border:#e7e2da;
+  --bar-bg:#efeae0; 
+  --bar-fill:#2e7d32;
+
+  --cta-bg:#fff6e9;
+  --cta-border:#f0dcc6;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;
+  line-height:1.6;
+}
+
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 1.25rem;
+}
+
+/* ================= HEADER ================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  transition:all .25s ease;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:68px;
+  transition:all .25s ease;
+}
+
+.brand-wrap{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  min-width:0;
+}
+
+.brand-logo{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  object-fit:cover;
+  flex:0 0 auto;
+  transition:all .25s ease;
+}
+
+.brand-text{
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.nav nav{
+  display:flex;
+  align-items:center;
+}
+
+.nav a{
+  margin-left:1rem;
+  color:var(--text);
+}
+
+/* Hamburger */
+.menu-toggle{
+  display:none;
+  background:none;
+  border:none;
+  font-size:1.8rem;
+  cursor:pointer;
+  line-height:1;
+}
+
+/* Shrink beim Scrollen */
+header.shrink .nav{
+  height:60px;
+}
+
+header.shrink .brand-logo{
+  width:34px;
+  height:34px;
+}
+
+/* ================= BUTTONS ================= */
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  background:var(--brand);
+  color:#fff;
+  padding:.7rem 1rem;
+  border-radius:999px;
+  font-weight:600;
+}
+
+/* ================= SECTIONS ================= */
+
+.section{padding:3.5rem 0}
+
+.hero{
+  background:linear-gradient(180deg,#ffffff 0%, #fff6e9 60%, var(--bg) 100%);
+  padding-top:4rem;
+}
+
+h1,h2,h3{margin:0 0 .75rem}
+h1{font-size:clamp(1rem,2vw,1rem)}
+h2{font-size:clamp(1.5rem,3vw,2rem)}
+
+.grid{display:grid;gap:1.25rem}
+
+@media(min-width:900px){
+  .grid-2{grid-template-columns:1.15fr .85fr}
+}
+
+.card{
+  background:var(--paper);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:1.25rem;
+}
+
+.tag{
+  display:inline-block;
+  background:#eef7ee;
+  color:var(--brand);
+  border-radius:999px;
+  padding:.25rem .6rem;
+  font-size:.8rem;
+  margin-bottom:.75rem;
+}
+
+.muted{color:var(--muted)}
+.anchor-space{scroll-margin-top:100px}
+
+/* ================= FINANZIERUNG ================= */
+
+.finanzierung-grid{
+  display:grid;
+  gap:1.25rem;
+}
+
+@media(min-width:900px){
+  .finanzierung-grid{
+    grid-template-columns:1.2fr 0.8fr;
+  }
+}
+
+@media(max-width:899px){
+  .finanzierung-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+.progress-bar{
+  width:100%;
+  height:14px;
+  background:var(--bar-bg);
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  width:0;
+  background:var(--bar-fill);
+}
+
+/* ================= CTA-BEREICH ================= */
+
+.cta-section{
+  background:var(--cta-bg);
+  border-top:1px solid var(--cta-border);
+  border-bottom:1px solid var(--cta-border);
+}
+
+.cta-grid{
+  display:grid;
+  gap:1.25rem;
+}
+
+@media(min-width:900px){
+  .cta-grid{
+    grid-template-columns:1.1fr .9fr;
+  }
+}
+
+.cta-card{
+  background:rgba(255,255,255,.85);
+  border:1px solid var(--cta-border);
+}
+
+.cta-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.75rem;
+  margin-top:.75rem;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  border-top:1px solid var(--border);
+  padding:2rem 0;
+  color:var(--muted);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width:700px){
+
+  .nav{
+    position:relative;
+    height:56px;
+    padding:.4rem 0;
+  }
+
+  .menu-toggle{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:44px;
+    height:44px;
+  }
+
+  .brand-text{
+    max-width:55vw;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .nav nav{
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    padding:1rem;
+    display:none;
+    flex-direction:column;
+    gap:.4rem;
+  }
+
+  .nav nav a{
+    margin:0;
+  }
+
+  .nav nav a.btn{
+    width:100%;
+    justify-content:center;
+    margin-top:.25rem;
+  }
+
+  .nav.open nav{
+    display:flex;
+  }
+
+  header{
+    backdrop-filter:none;
+  }
+
+  header.shrink .nav{
+    height:52px;
+  }
+
+  header.shrink .brand-logo{
+    width:32px;
+    height:32px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+
+    <a class="brand-wrap" href="#top">
+      <img class="brand-logo" src="img/logo.png" alt="Logo">
+      <span class="brand-text">Syntopie e.V.</span>
+    </a>
+
+    <!-- Hamburger Button -->
+    <button class="menu-toggle" aria-label="Menü öffnen">
+      ☰
+    </button>
+
+    <nav id="main-nav">
+      <a href="#verein">Der Verein</a>
+      <a href="#haus">Das Haus</a>
+      <a href="#finanzierung">Finanzierung</a>
+      <a href="#syndikat">Mietshaussyndikat</a>
+      <a href="#faq">FAQ</a>
+
+      <!-- Button springt jetzt in den letzten Abschnitt -->
+      <a href="#direktkredit" class="btn">Direktkredit anbieten</a>
+    </nav>
+
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero section">
+  <div class="container grid grid-2">
+    <div>
+      <span class="tag">Gemeinschaftlich wohnen – solidarisch finanzieren</span>
+      <h1>Wir sind der Syntopie e.V. Seit 2023 haben wir ein Haus mit Garten in Frankfurt-Unterliederbach gemietet. Wir haben uns zum Ziel gesetzt, gemeinschaftlich,
+      sozial und nachhaltig zu wohnen.</h1>
+      <p>
+        Das Wohnprojekt soll ein Ort für Kinder sein. Dies ermöglichen wir durch ein familienfreundliches Mietmodell.
+        Unser Zusammenleben organisieren wir in wöchentlich stattfindenden Plena. Wir haben eine solidarische Essenskasse und treffen uns
+        häufig zu gemeinsamen Mahlzeiten. Neben Privatzimmern nutzen wir viele Räume gemeinschaftlich, u.a. zwei Küchen, ein großes Wohn- und Esszimmer, einen
+        Arbeitsbereich, einen Wintergarten und einen großen Keller, in dem wir eine Werkstatt und evtl. einen Hobbyraum einrichten wollen. In unserem großen Garten
+        bauen wir Gemüse an. Darüber hinaus bietet er Platz zum Spielen und Entspannen, ob beim Lesen im Grünen, am gemütlichen Lagerfeuer oder beim Beobachten von Vögeln und Eichhörnchen. <br><br>
+
+        Derzeit leben zwölf Personen in der Syntopie, darunter drei Kinder. <br><br>
+
+        Aber was heißt „Syntopie“ eigentlich? Syntopie ist ein Kofferwort, gebildet aus „Syntop“ und „Utopie“. Ein Syntop
+        (altgriechisch syn „zusammen, gemeinsam“ und topos „Ort“) ist ein Lebensraum, in welchem verschiedene Arten oder Populationen koexistieren.
+        Eine Utopie (altgriechisch ou „nicht“ und topos, also „Nicht-Ort“) ist der Entwurf einer möglichen, zukünftigen, meist aber fiktiven
+        Lebensform oder Gesellschaftsordnung. Eine Syntopie ist nach unserem Verständnis demnach eine Synthese von Individualität und Gemeinschaft.
+        In unserem Wohnprojekt heißen wir Vielfalt willkommen und möchten individuelle Entfaltung ermöglichen. Zugleich wollen wir sowohl unser
+        Zusammenleben als auch Haus und Garten nach gemeinschaftlich ausgehandelten Vorstellungen, unabhängig von tradierten Lebensentwürfen, gestalten.
+      </p>
+    </div>
+    <figure class="card">
+      <img src="img/gruppe.jpg" alt="Gruppe">
+    </figure>
+  </div>
+</section>
+
+<!-- VEREIN -->
+<section id="verein" class="section anchor-space">
+  <div class="container grid grid-2">
+    <figure class="card">
+      <img src="img/verein.jpg" alt="Verein">
+    </figure>
+    <div class="card">
+      <h2>Der Verein</h2>
+      <p>
+        Der Syntopie e.V. hat eine Satzung und ist beim Amtsgericht registriert. Entscheidungen treffen wir
+        im Plenum einstimmig. Der Verein mietet das Haus und organisiert das gemeinschaftliche Zusammenleben.
+        Zwischen den Mitglieder:innen und dem Verein besteht ein weiteres Mietverhältnis. Alle Mitglieder:innen sind
+        also auch gleichzeitig Mieter:innen.
+        <br><br>
+        In Zukunft ist vorgesehen eine GmbH zu gründen, die das Haus kauft und es an seiner Bewohner:innen vermietet. Die dann gegründete
+        Hausbesitz GmbH hat als Gesellschafter den Syntopie e.V und das Mietshäusersyndikat. Somit kontolliert der Verein die GmbH und die
+        Entscheidungen werden analog zu dem bisherigen Vorgehen getroffen. Das Mietshäusersyndikat hat auf Entscheidungen des täglichen Lebens
+        keinen Einfluss. Sie nimmt lediglich ihr Vetorecht war, falls wir uns dazu entscheiden würden, das Haus zu verkaufen.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- HAUS -->
+<section id="haus" class="section anchor-space">
+  <div class="container grid grid-2">
+    <figure class="card">
+      <img src="img/haus.png" alt="Haus">
+    </figure>
+    <div class="card">
+      <h2>Das Haus</h2>
+      <p>
+        Es handelt sich um ein sanierten Altbau mit Anbau aus dem Jahr 2017. Rund 400 m² Wohnfläche stehen der Wohngemeinschaft zur Verfügung, außerdem
+        bietet ein großer Garten platz zur Erholhung und zum Gemüseanbau. Im Keller befindet sich eine Holz- und eine Kermamikwerkstatt. Der Keramikbrennofen
+        steht hierbei auch anderen Menschen in Frankfurt und Umgebung zum Brennen zur Verfügung.
+
+        Das Haus besetzt 10 Zimmer, 5 Bäder, 2 Küchen und ein Wohnzimmer.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FINANZIERUNG -->
+<section id="finanzierung" class="section anchor-space">
+  <div class="container finanzierung-grid">
+
+    <div class="card">
+      <h2>Hauskauf und Direktkredite</h2>
+      <p>
+        Wir beabsichtigen das Haus in dem wir wohnen zu kaufen, dazu benötigen wit einen bestimmten Betrag
+        als sog. Direktkredite, also Kaptiel, dass wir bei der Bank als Eigenkaptial angeben können um einen
+        großen Kredit aufzunehmen, der uns ermöglicht, dass Haus zu kaufen.
+        <br><br>
+        Direktkredite sind private Darlehen an unser Projekt, genauer der Hausbesitz GmbH. Diese Kredite sind
+        dem Bankkredit nachgeordnet, werden also im Fall der Insolvenz der GmbH erst nachrangig bedient. Genau
+        dieser Mechanismus ermöglicht uns diese Kredite als Eigenkapital zu nutzen.
+      </p>
+      <p>
+        Laufzeiten und Zinsen gestalten wir individuell. In den meisten Fällen sind die Direktkredite aber endfällig
+        und werden nur gering verzinst. Dies entlastet uns in der Rückzahlphase des Bankkredits.
+      </p>
+      <p class="muted">
+        Wenn du einen Direktkredit anbieten möchtest, findest du die Kontaktdaten im Abschnitt „Direktkredit anbieten“ am Ende der Seite.
+      </p>
+      <div class="cta-actions">
+        <a class="btn" href="#direktkredit">Direktkredit anbieten</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Finanzierungsstand</h2>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <p id="progress-amounts"></p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SYNDIKAT -->
+<section id="syndikat" class="section anchor-space">
+  <div class="container card">
+    <h2>Mietshäuser Syndikat</h2>
+    <p>
+      Wir haben vor als Verein und GmbH dem Verein des Mietshäusersyndikats anzugehören.
+      So bleibt das Haus dauerhaft gemeinschaftlich und kann nicht privatisiert werden.
+      Das Mietshäusersyndikat tritt als zweiter Gesellschafter der Hausbesitz GmbH auf.
+      Somit hat der Syntopie e.V. und das Mietshäusersyndikat ein Vetorecht in der Hausbesitz GmbH.
+
+      Das Mietshäusersyndikat hat sich zum Ziel gesetzt Wohnprojekte zu unterstützen und dabei
+      ein Netzwerk von Häusern schaffen, dass dem Mietmarkt dauerhaft entzogen ist.
+
+      Für weitere Informationen:
+    </p>
+    <a href="https://www.syndikat.org/">Mietshäusersyndikat</a>
+     <figure class="card">
+       <img src="img/MiSy_Dia.gif" alt="Diagramm">
+     </figure>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section anchor-space">
+  <div class="container card">
+    <h2>FAQ</h2>
+    <details>
+      <summary>Wie sicher ist ein Direktkredit?</summary>
+      <p>Der Kredit ist nicht ohne Risiko, aber ...</p>
+    </details>
+    <details>
+      <summary>Welche Vorteile habe ich als Direktkreditgeber?</summary>
+      <p>Der Kredit ist nicht ohne Risiko, aber ...</p>
+    </details>
+    <details>
+      <summary>Welche Rolle spiel das Mietshäusersyndikat?</summary>
+      <p>Der Kredit ist nicht ohne Risiko, aber ...</p>
+    </details>
+    <details>
+      <summary>Kann das Projekt auch scheitern?</summary>
+      <p>Der Kredit ist nicht ohne Risiko, aber ...</p>
+    </details>
+  </div>
+</section>
+
+<!-- NEU: DIREKTKREDIT-KONTAKT (LETZTER ABSCHNITT) -->
+<section id="direktkredit" class="section anchor-space cta-section">
+  <div class="container cta-grid">
+
+    <div class="card cta-card">
+      <h2>Direktkredit anbieten</h2>
+      <p>
+        Wir freuen uns über dein Interesse uns einen Direktkredit zu geben. Melde dich gerne unter:
+      </p>
+      <p style="margin-bottom:0">
+        📧 <a href="mailto:direktkredit@syntopie-ev.de">direktkredit@syntopie-ev.de</a><br>
+        ☎️ <a href="tel:+496912345678">+49 69 123 456 78</a>
+      </p>
+    </div>
+
+    <div class="card cta-card">
+      <h3 style="margin-top:0">So geht’s</h3>
+      <p class="muted" style="margin-bottom:.75rem">
+        Schreib uns kurz, welchen Betrag du dir vorstellen könntest und ob du eine Wunsch-Laufzeit / Wunsch-Zins hast.
+        Wir melden uns dann mit den nächsten Schritten.
+      </p>
+      <div class="cta-actions">
+        <a class="btn" href="mailto:direktkredit@syntopie-ev.de">E-Mail schreiben</a>
+        <a class="btn" href="tel:+496912345678">Anrufen</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> Syntopie e.V.
+  </div>
+</footer>
+
+<script>
+const current = 150080;
+const goal = 2000000;
+const pct = Math.min(100,(current/goal)*100);
+document.getElementById('progress-fill').style.width = pct + '%';
+document.getElementById('progress-amounts').textContent =
+  current.toLocaleString('de-DE') + " € von " + goal.toLocaleString('de-DE') + " €";
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<script>
+const toggle = document.querySelector(".menu-toggle");
+const nav = document.querySelector(".nav");
+const header = document.querySelector("header");
+
+toggle.addEventListener("click", () => {
+  nav.classList.toggle("open");
+});
+
+/* Header beim Scrollen verkleinern */
+window.addEventListener("scroll", () => {
+  if(window.scrollY > 50){
+    header.classList.add("shrink");
+  } else {
+    header.classList.remove("shrink");
+  }
+});
+</script>
+
+</body>
+</html>
