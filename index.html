@@ -432,15 +432,22 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
       </div>
     </div>
 
-    <div class="card">
-      <h2>Finanzierungsstand</h2>
-      <div class="progress-bar">
-        <div class="progress-fill" id="progress-fill"></div>
-      </div>
-      <p id="progress-amounts"></p>
-    </div>
+<div class="card">
+  <h2>Finanzierungsstand</h2>
 
+  <div style="display:grid; gap:.5rem; margin-bottom:.75rem">
+    <div><strong>Ziel Direktkredite:</strong> <span id="kpi-goal">–</span></div>
+    <div><strong>Eingeworben:</strong> <span id="kpi-current">–</span></div>
+    <div><strong>Kaufpreis (Schätzung):</strong> <span id="kpi-price">–</span></div>
+    <div><strong>Abgeleitete Miete:</strong> <span id="kpi-rent">–</span></div>
   </div>
+
+  <div class="progress-bar">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+
+  <p id="progress-amounts" class="muted" style="margin-top:.5rem"></p>
+</div>
 </section>
 
 <!-- SYNDIKAT -->
@@ -527,12 +534,55 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
 </footer>
 
 <script>
-const current = 150080;
-const goal = 2000000;
-const pct = Math.min(100,(current/goal)*100);
-document.getElementById('progress-fill').style.width = pct + '%';
-document.getElementById('progress-amounts').textContent =
-  current.toLocaleString('de-DE') + " € von " + goal.toLocaleString('de-DE') + " €";
+function fmtEUR0(n){
+  return new Intl.NumberFormat("de-DE", {
+    style:"currency",
+    currency:"EUR",
+    maximumFractionDigits:0
+  }).format(n);
+}
+
+function fmtEUR2(n){
+  return new Intl.NumberFormat("de-DE", {
+    style:"currency",
+    currency:"EUR",
+    minimumFractionDigits:2,
+    maximumFractionDigits:2
+  }).format(n);
+}
+
+async function loadFinance(){
+  try{
+    const res = await fetch("/.netlify/functions/finance", { cache: "no-store" });
+    const data = await res.json();
+    if(!res.ok) throw new Error(data?.error || "Fehler beim Laden");
+
+    const pct = Math.max(0, Math.min(1, Number(data.progress))) * 100;
+
+    document.getElementById("kpi-goal").textContent = fmtEUR0(data.ziel);
+    document.getElementById("kpi-current").textContent = fmtEUR0(data.eingeworben);
+    document.getElementById("kpi-price").textContent = fmtEUR0(data.kaufpreis);
+    document.getElementById("kpi-rent").textContent =
+      fmtEUR2(data.mieteProQm) + " / m²";
+
+    document.getElementById("progress-fill").style.width =
+      pct.toFixed(1) + "%";
+
+    document.getElementById("progress-amounts").textContent =
+      fmtEUR0(data.eingeworben) +
+      " von " +
+      fmtEUR0(data.ziel) +
+      " (" +
+      pct.toFixed(1) +
+      "%)";
+  } catch(e){
+    console.error(e);
+    document.getElementById("progress-amounts").textContent =
+      "Finanzierungsdaten aktuell nicht verfügbar.";
+  }
+}
+
+loadFinance();
 document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
