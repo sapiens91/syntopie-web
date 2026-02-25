@@ -230,7 +230,40 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
   margin-top:.75rem;
 }
 
-  /* Leute – Kachelwand */
+ /* Grid für die Modell-Boxen */
+.modell-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.5rem;
+}
+
+/* Basis-Box */
+.modell-box{
+  background:white;
+  padding:1.5rem;
+  border-radius:14px;
+  border:2px solid #ddd;
+  transition:all .2s ease;
+}
+
+/* Farben nach Reihenfolge */
+.modell-grid .modell-box:nth-child(1){ border-color:#2b6cb0; } /* Blau */
+.modell-grid .modell-box:nth-child(2){ border-color:#2f855a; } /* Grün */
+.modell-grid .modell-box:nth-child(3){ border-color:#c53030; } /* Rot */
+.modell-grid .modell-box:nth-child(4){ border-color:#a0aec0; } /* Silber */
+
+/* Gold-Spezialbox */
+.modell-grid .modell-box.gold{
+  background:linear-gradient(135deg,#fff7d6,#fff);
+  border-color:#d4af37;
+  box-shadow:0 0 18px rgba(212,175,55,0.3);
+  grid-column:1/-1;
+  padding:1.8rem;
+}
+
+  
+  /* ============   Leute – Kachelwand ======================= */
+  
 .leute-head{max-width:72ch;margin:0 0 1.25rem}
 .leute-grid{
   display:grid;
@@ -770,14 +803,10 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
     als Zeichen unserer Wertschätzung.
   </p>
 
-  <div style="
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:1.5rem;
-  ">
+  <div class="modell-grid">
 
     <!-- Tasse -->
-    <div style="background:white;padding:1.5rem;border-radius:14px;border:1px solid #eee;">
+    <div class="modell-box">>
       <h4 style="margin-top:0;">☕ Syntopie-Keramiktasse</h4>
       <p style="margin:.5rem 0;"><strong>1,5–2 % Zinsen</strong></p>
       <p style="margin:.5rem 0;color:#5d5d5d;">ab 5 Jahre Laufzeit</p>
@@ -785,7 +814,7 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
     </div>
 
     <!-- Rote Beete -->
-    <div style="background:white;padding:1.5rem;border-radius:14px;border:1px solid #eee;">
+    <div class="modell-box">
       <h4 style="margin-top:0;">🥬 Syntopie-Rote-Beete im Glas</h4>
       <p style="margin:.5rem 0;"><strong>1–2 % Zinsen</strong></p>
       <p style="margin:.5rem 0;color:#5d5d5d;">ab 8 Jahre Laufzeit</p>
@@ -793,7 +822,7 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
     </div>
 
     <!-- Ehrenmitgliedschaft -->
-    <div style="background:white;padding:1.5rem;border-radius:14px;border:1px solid #eee;">
+    <div class="modell-box">
       <h4 style="margin-top:0;">🌿 Ehrenmitgliedschaft</h4>
       <p style="margin:.5rem 0;"><strong>0–1 % Zinsen</strong></p>
       <p style="margin:.5rem 0;color:#5d5d5d;">ab 10 Jahre Laufzeit</p>
@@ -801,7 +830,7 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
     </div>
 
     <!-- Baum -->
-    <div style="background:white;padding:1.5rem;border-radius:14px;border:1px solid #eee;">
+    <div class="modell-box">
       <h4 style="margin-top:0;">🌳 Baum mit Namensschild</h4>
       <p style="margin:.5rem 0;"><strong>0–1 % Zinsen</strong></p>
       <p style="margin:.5rem 0;color:#5d5d5d;">ab 15 Jahre Laufzeit</p>
@@ -809,13 +838,7 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
     </div>
 
     <!-- Goldene Medaille -->
-    <div style="
-      background:linear-gradient(135deg,#fff7d6,#fff);
-      padding:1.8rem;
-      border-radius:16px;
-      border:2px solid #e5c96b;
-      grid-column:1/-1;
-    ">
+   <div class="modell-box gold">
       <h4 style="margin-top:0;">🏅 Goldene Solidaritäts-Medaille</h4>
       <p style="margin:.5rem 0;"><strong>0–1 % Zinsen</strong></p>
       <p style="margin:.5rem 0;color:#5d5d5d;">15 Jahre Laufzeit</p>
