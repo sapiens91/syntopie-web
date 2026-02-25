@@ -196,6 +196,191 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
   background:var(--bar-fill);
 }
 
+/* =========================
+   FINANCE TERMINAL (Stock-Look)
+========================= */
+.finance-terminal{
+  background: radial-gradient(1200px 600px at 10% 0%, rgba(46,125,50,.18), transparent 60%),
+              radial-gradient(900px 500px at 90% 10%, rgba(43,108,176,.16), transparent 55%),
+              #0f1412;
+  color:#eef5ef;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow: 0 18px 45px rgba(0,0,0,.28);
+  overflow:hidden;
+}
+
+.finance-terminal .muted{ color: rgba(238,245,239,.72); }
+
+/* Header */
+.ft-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:1rem;
+  padding-bottom:.75rem;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  margin-bottom:1rem;
+}
+
+.ft-title{
+  margin:0;
+  letter-spacing:.2px;
+}
+
+.ft-sub{
+  margin-top:.15rem;
+  font-size:.92rem;
+  color: rgba(238,245,239,.68);
+}
+
+.ft-badge{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.35rem .6rem;
+  border-radius:999px;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
+  font-weight:700;
+  font-size:.78rem;
+  letter-spacing:.5px;
+}
+
+.ft-badge .dot{
+  width:.55rem; height:.55rem; border-radius:50%;
+  background: #46d36a;
+  box-shadow: 0 0 0 3px rgba(70,211,106,.18);
+}
+
+/* KPI grid */
+.ft-kpis{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap:.75rem;
+  margin-bottom:1rem;
+}
+
+.kpi{
+  padding:.85rem .9rem;
+  border-radius:14px;
+  background: rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.09);
+  backdrop-filter: blur(6px);
+  transition: transform .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.kpi:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.14);
+}
+
+.kpi-label{
+  font-size:.78rem;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+  color: rgba(238,245,239,.62);
+}
+
+.kpi-value{
+  margin-top:.35rem;
+  font-size:1.25rem;
+  font-weight:800;
+  letter-spacing:.2px;
+}
+
+.kpi-hint{
+  margin-top:.25rem;
+  font-size:.85rem;
+  color: rgba(238,245,239,.55);
+}
+
+/* Ticker */
+.ft-ticker{
+  display:flex;
+  gap:.75rem;
+  align-items:center;
+  padding:.65rem .8rem;
+  border-radius:12px;
+  background: linear-gradient(90deg, rgba(46,125,50,.18), rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.08);
+  margin-bottom:1rem;
+}
+
+.ticker-label{
+  font-size:.75rem;
+  font-weight:800;
+  letter-spacing:.6px;
+  color: rgba(238,245,239,.7);
+  white-space:nowrap;
+}
+
+.ticker-text{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size:.92rem;
+  color: rgba(238,245,239,.9);
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+}
+
+/* Progress / Chart bar */
+.ft-progress{
+  padding:.85rem .9rem;
+  border-radius:14px;
+  background: rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.ft-progress-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:.6rem;
+}
+
+.ft-percent{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight:800;
+  color: rgba(238,245,239,.9);
+}
+
+/* reuse your existing .progress-bar / .progress-fill but improve it inside terminal */
+.ft-bar{
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.08);
+  overflow:hidden;
+}
+
+.ft-fill{
+  height:100%;
+  width:0%;
+  border-radius:999px;
+  background: linear-gradient(90deg, #2e7d32, #46d36a);
+  box-shadow: 0 0 18px rgba(70,211,106,.22);
+  transition: width .6s ease;
+}
+
+.ft-scale{
+  display:flex;
+  justify-content:space-between;
+  gap:.5rem;
+  margin-top:.55rem;
+  font-size:.78rem;
+  color: rgba(238,245,239,.55);
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .ft-kpis{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 520px){
+  .ft-kpis{ grid-template-columns: 1fr; }
+  .ft-header{ align-items:center; }
+}
+  
 /* ================= CTA-BEREICH ================= */
 
 .cta-section{
@@ -698,21 +883,67 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
       </div>
     </div>
 
-<div class="card">
-  <h2>Finanzierungsstand</h2>
+<div class="card finance-terminal">
+  <div class="ft-header">
+    <div>
+      <h2 class="ft-title">Finanzierungsstand</h2>
+      <div class="ft-sub">Live-Übersicht · Direktkredite</div>
+    </div>
 
-  <div style="display:grid; gap:.5rem; margin-bottom:.75rem">
-    <div><strong>Ziel Direktkredite:</strong> <span id="kpi-goal">–</span></div>
-    <div><strong>Eingeworben:</strong> <span id="kpi-current">–</span></div>
-    <div><strong>Kaufpreis (Schätzung):</strong> <span id="kpi-price">–</span></div>
-    <div><strong>Abgeleitete Miete:</strong> <span id="kpi-rent">–</span></div>
+    <div class="ft-badge">
+      <span class="dot"></span>
+      <span>LIVE</span>
+    </div>
   </div>
 
-  <div class="progress-bar">
-    <div class="progress-fill" id="progress-fill"></div>
+  <!-- KPI Grid -->
+  <div class="ft-kpis">
+    <div class="kpi">
+      <div class="kpi-label">Ziel Direktkredite</div>
+      <div class="kpi-value" id="kpi-goal">–</div>
+      <div class="kpi-hint">Zielmarke</div>
+    </div>
+
+    <div class="kpi">
+      <div class="kpi-label">Eingeworben</div>
+      <div class="kpi-value" id="kpi-current">–</div>
+      <div class="kpi-hint">Aktueller Stand</div>
+    </div>
+
+    <div class="kpi">
+      <div class="kpi-label">Kaufpreis (Schätzung)</div>
+      <div class="kpi-value" id="kpi-price">–</div>
+      <div class="kpi-hint">Orientierungswert</div>
+    </div>
+
+    <div class="kpi">
+      <div class="kpi-label">Abgeleitete Miete</div>
+      <div class="kpi-value" id="kpi-rent">–</div>
+      <div class="kpi-hint">€/m²</div>
+    </div>
   </div>
 
-  <p id="progress-amounts" class="muted" style="margin-top:.5rem"></p>
+  <!-- “Ticker” -->
+  <div class="ft-ticker">
+    <div class="ticker-label">FORTSCHRITT</div>
+    <div id="progress-amounts" class="ticker-text">–</div>
+  </div>
+
+  <!-- Progress / “Chart bar” -->
+  <div class="ft-progress">
+    <div class="ft-progress-top">
+      <span class="muted">Erfüllung</span>
+      <span class="ft-percent" id="progress-percent">–</span>
+    </div>
+
+    <div class="progress-bar ft-bar">
+      <div class="progress-fill ft-fill" id="progress-fill"></div>
+    </div>
+
+    <div class="ft-scale">
+      <span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
+    </div>
+  </div>
 </div>
 </section>
 
