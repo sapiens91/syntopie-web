@@ -196,13 +196,17 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
   background:var(--bar-fill);
 }
 
+  
+
 /* =========================
-   FINANCE TERMINAL (Stock-Look)
+   FINANCE TERMINAL (Stock-Look) – FINAL
+   (inkl. Patch gegen gequetschte Zahlen)
 ========================= */
 .finance-terminal{
-  background: radial-gradient(1200px 600px at 10% 0%, rgba(46,125,50,.18), transparent 60%),
-              radial-gradient(900px 500px at 90% 10%, rgba(43,108,176,.16), transparent 55%),
-              #0f1412;
+  background:
+    radial-gradient(1200px 600px at 10% 0%, rgba(46,125,50,.18), transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(43,108,176,.16), transparent 55%),
+    #0f1412;
   color:#eef5ef;
   border:1px solid rgba(255,255,255,.08);
   box-shadow: 0 18px 45px rgba(0,0,0,.28);
@@ -212,7 +216,7 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
 .finance-terminal .muted{ color: rgba(238,245,239,.72); }
 
 /* Header */
-.ft-header{
+.finance-terminal .ft-header{
   display:flex;
   justify-content:space-between;
   align-items:flex-start;
@@ -222,18 +226,18 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
   margin-bottom:1rem;
 }
 
-.ft-title{
+.finance-terminal .ft-title{
   margin:0;
   letter-spacing:.2px;
 }
 
-.ft-sub{
+.finance-terminal .ft-sub{
   margin-top:.15rem;
   font-size:.92rem;
   color: rgba(238,245,239,.68);
 }
 
-.ft-badge{
+.finance-terminal .ft-badge{
   display:flex;
   align-items:center;
   gap:.5rem;
@@ -246,21 +250,21 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
   letter-spacing:.5px;
 }
 
-.ft-badge .dot{
+.finance-terminal .ft-badge .dot{
   width:.55rem; height:.55rem; border-radius:50%;
   background: #46d36a;
   box-shadow: 0 0 0 3px rgba(70,211,106,.18);
 }
 
-/* KPI grid */
-.ft-kpis{
+/* KPI grid (FINAL: auto-fit + Mindestbreite, verhindert Quetschen) */
+.finance-terminal .ft-kpis{
   display:grid;
-  grid-template-columns: repeat(4, minmax(0,1fr));
-  gap:.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap:.85rem;
   margin-bottom:1rem;
 }
 
-.kpi{
+.finance-terminal .kpi{
   padding:.85rem .9rem;
   border-radius:14px;
   background: rgba(255,255,255,.05);
@@ -269,34 +273,45 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
   transition: transform .15s ease, border-color .15s ease, background .15s ease;
 }
 
-.kpi:hover{
+.finance-terminal .kpi:hover{
   transform: translateY(-2px);
   background: rgba(255,255,255,.07);
   border-color: rgba(255,255,255,.14);
 }
 
-.kpi-label{
+.finance-terminal .kpi-label{
   font-size:.78rem;
   letter-spacing:.4px;
   text-transform:uppercase;
   color: rgba(238,245,239,.62);
+  line-height:1.2;
+  overflow-wrap:anywhere;
 }
 
-.kpi-value{
+.finance-terminal .kpi-value{
   margin-top:.35rem;
-  font-size:1.25rem;
   font-weight:800;
   letter-spacing:.2px;
+
+  /* FINAL: skaliert + sauberer Umbruch */
+  font-size: clamp(1.05rem, 2.1vw, 1.35rem);
+  line-height:1.15;
+  overflow-wrap:anywhere;
+  word-break: break-word;
+
+  /* "Börsen"-Look */
+  font-variant-numeric: tabular-nums;
 }
 
-.kpi-hint{
+.finance-terminal .kpi-hint{
   margin-top:.25rem;
   font-size:.85rem;
   color: rgba(238,245,239,.55);
+  line-height:1.2;
 }
 
 /* Ticker */
-.ft-ticker{
+.finance-terminal .ft-ticker{
   display:flex;
   gap:.75rem;
   align-items:center;
@@ -307,7 +322,7 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
   margin-bottom:1rem;
 }
 
-.ticker-label{
+.finance-terminal .ticker-label{
   font-size:.75rem;
   font-weight:800;
   letter-spacing:.6px;
@@ -315,7 +330,7 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
   white-space:nowrap;
 }
 
-.ticker-text{
+.finance-terminal .ticker-text{
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size:.92rem;
   color: rgba(238,245,239,.9);
@@ -325,28 +340,28 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
 }
 
 /* Progress / Chart bar */
-.ft-progress{
+.finance-terminal .ft-progress{
   padding:.85rem .9rem;
   border-radius:14px;
   background: rgba(255,255,255,.04);
   border:1px solid rgba(255,255,255,.08);
 }
 
-.ft-progress-top{
+.finance-terminal .ft-progress-top{
   display:flex;
   justify-content:space-between;
   align-items:center;
   margin-bottom:.6rem;
 }
 
-.ft-percent{
+.finance-terminal .ft-percent{
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-weight:800;
   color: rgba(238,245,239,.9);
 }
 
-/* reuse your existing .progress-bar / .progress-fill but improve it inside terminal */
-.ft-bar{
+/* nutzt deine .progress-bar/.progress-fill, wird hier "terminalisiert" */
+.finance-terminal .ft-bar{
   height: 12px;
   border-radius: 999px;
   background: rgba(255,255,255,.08);
@@ -354,7 +369,7 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
   overflow:hidden;
 }
 
-.ft-fill{
+.finance-terminal .ft-fill{
   height:100%;
   width:0%;
   border-radius:999px;
@@ -363,7 +378,7 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
   transition: width .6s ease;
 }
 
-.ft-scale{
+.finance-terminal .ft-scale{
   display:flex;
   justify-content:space-between;
   gap:.5rem;
@@ -374,12 +389,18 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
 
 /* Responsive */
 @media (max-width: 900px){
-  .ft-kpis{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .finance-terminal .ft-header{ align-items:flex-start; }
 }
+
 @media (max-width: 520px){
-  .ft-kpis{ grid-template-columns: 1fr; }
-  .ft-header{ align-items:center; }
+  .finance-terminal .ft-header{ align-items:center; }
 }
+
+@media (max-width: 420px){
+  .finance-terminal .kpi-value{ font-size: 1.05rem; }
+}
+
+  
   
 /* ================= CTA-BEREICH ================= */
 
