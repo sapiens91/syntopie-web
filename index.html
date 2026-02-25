@@ -227,6 +227,53 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
   margin-top:.75rem;
 }
 
+  /* Leute – Kachelwand */
+.leute-head{max-width:72ch;margin:0 0 1.25rem}
+.leute-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:1rem;
+  margin-top:1rem;
+}
+
+.person{
+  background:var(--paper);
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.person:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 26px rgba(0,0,0,.10);
+}
+.person-img{
+  aspect-ratio: 4 / 3;
+  background:var(--bar-bg);
+  overflow:hidden;
+}
+.person-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.person-body{padding:1rem}
+.person-name{margin:0 0 .35rem;font-size:1.05rem}
+.person-text{margin:0;color:var(--muted);font-size:.95rem;line-height:1.45}
+
+/* Responsive */
+@media (max-width: 980px){
+  .leute-grid{grid-template-columns:repeat(3, minmax(0,1fr))}
+}
+@media (max-width: 720px){
+  .leute-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
+}
+@media (max-width: 420px){
+  .leute-grid{grid-template-columns:1fr}
+}
+
 /* ================= FOOTER ================= */
 
 .footer{
@@ -319,7 +366,7 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
 
     <nav id="main-nav">
       <a href="#verein">Der Verein</a>
-      <a href="#haus">Die Leute</a>
+      <a href="#leute">Die Leute</a>
       <a href="#haus">Das Haus</a>
       <a href="#finanzierung">Finanzierung</a>
       <a href="#syndikat">Mietshaussyndikat</a>
@@ -400,15 +447,153 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
   </div>
 </section>
 
-  <!-- VEREIN -->
-<section id="Leute" class="section anchor-space">
-  <div class="container grid grid-2">
+<!-- Leute -->
+<section id="leute" class="section anchor-space">
+  <div class="container">
     <div class="card">
-      <h2>Die Leute</h2>
-      <p>
-        Leute
-      </p>
-      </p>
+      <div class="leute-head">
+        <h2>Die Leute hinter Syntopie</h2>
+        <p class="muted">
+          Wir sind ein Verein aus 12 Menschen, die gemeinschaftlich wohnen, Verantwortung teilen und das Projekt langfristig tragen.
+          Hier bekommst du ein Gesicht zu dem, was du unterstützt.
+        </p>
+      </div>
+
+      <div class="leute-grid">
+
+        <!-- Kachel 1 -->
+        <article class="person">
+          <div class="person-img">
+            <img src="img/leute/person-01.jpg" alt="Name Nachname">
+          </div>
+          <div class="person-body">
+            <h3 class="person-name">Name Nachname</h3>
+            <p class="person-text">Kurzbeschreibung (1–2 Sätze). Rolle/Schwerpunkt im Projekt.</p>
+          </div>
+        </article>
+
+        <!-- Kachel 2 -->
+        <article class="person">
+          <div class="person-img">
+            <img src="img/leute/person-02.jpg" alt="Name Nachname">
+          </div>
+          <div class="person-body">
+            <h3 class="person-name">Name Nachname</h3>
+            <p class="person-text">Kurzbeschreibung (1–2 Sätze). Was motiviert die Person?</p>
+          </div>
+        </article>
+
+        <!-- Kachel 3 -->
+        <article class="person">
+          <div class="person-img">
+            <img src="img/leute/person-03.jpg" alt="Name Nachname">
+          </div>
+          <div class="person-body">
+            <h3 class="person-name">Name Nachname</h3>
+            <p class="person-text">Kurzbeschreibung (1–2 Sätze). Aufgaben im Verein.</p>
+          </div>
+        </article>
+
+        <!-- Kachel 4 -->
+        <article class="person">
+          <div class="person-img">
+            <img src="img/leute/person-04.jpg" alt="Name Nachname">
+          </div>
+          <div class="person-body">
+            <h3 class="person-name">Name Nachname</h3>
+            <p class="person-text">Kurzbeschreibung (1–2 Sätze). Lieblingsaspekt am Projekt.</p>
+          </div>
+        </article>
+
+        <!-- Kachel 5 -->
+        <article class="person">
+          <div class="person-img">
+            <img src="img/leute/person-05.jpg" alt="Name Nachname">
+          </div>
+          <div class="person-body">
+            <h3 class="person-name">Name Nachname</h3>
+            <p class="person-text">Kurzbeschreibung (1–2 Sätze). Hintergrund/Skill.</p>
+          </div>
+        </article>
+
+        <!-- Kachel 6 -->
+        <article class="person">
+          <div class="person-img">
+            <img src="img/leute/person-06.jpg" alt="Name Nachname">
+          </div>
+          <div class="person-body">
+            <h3 class="person-name">Name Nachname</h3>
+            <p class="person-text">Kurzbeschreibung (1–2 Sätze). Was bringt die Person ein?</p>
+          </div>
+        </article>
+
+        <!-- Kachel 7 -->
+        <article class="person">
+          <div class="person-img">
+            <img src="img/leute/person-07.jpg" alt="Name Nachname">
+          </div>
+          <div class="person-body">
+            <h3 class="person-name">Name Nachname</h3>
+            <p class="person-text">Kurzbeschreibung (1–2 Sätze). Rolle/Schwerpunkt.</p>
+          </div>
+        </article>
+
+        <!-- Kachel 8 -->
+        <article class="person">
+          <div class="person-img">
+            <img src="img/leute/person-08.jpg" alt="Name Nachname">
+          </div>
+          <div class="person-body">
+            <h3 class="person-name">Name Nachname</h3>
+            <p class="person-text">Kurzbeschreibung (1–2 Sätze). Motivation.</p>
+          </div>
+        </article>
+
+        <!-- Kachel 9 -->
+        <article class="person">
+          <div class="person-img">
+            <img src="img/leute/person-09.jpg" alt="Name Nachname">
+          </div>
+          <div class="person-body">
+            <h3 class="person-name">Name Nachname</h3>
+            <p class="person-text">Kurzbeschreibung (1–2 Sätze). Aufgaben im Projekt.</p>
+          </div>
+        </article>
+
+        <!-- Kachel 10 -->
+        <article class="person">
+          <div class="person-img">
+            <img src="img/leute/person-10.jpg" alt="Name Nachname">
+          </div>
+          <div class="person-body">
+            <h3 class="person-name">Name Nachname</h3>
+            <p class="person-text">Kurzbeschreibung (1–2 Sätze). Fokus/Skill.</p>
+          </div>
+        </article>
+
+        <!-- Kachel 11 -->
+        <article class="person">
+          <div class="person-img">
+            <img src="img/leute/person-11.jpg" alt="Name Nachname">
+          </div>
+          <div class="person-body">
+            <h3 class="person-name">Name Nachname</h3>
+            <p class="person-text">Kurzbeschreibung (1–2 Sätze). Warum Syntopie?</p>
+          </div>
+        </article>
+
+        <!-- Kachel 12 -->
+        <article class="person">
+          <div class="person-img">
+            <img src="img/leute/person-12.jpg" alt="Name Nachname">
+          </div>
+          <div class="person-body">
+            <h3 class="person-name">Name Nachname</h3>
+            <p class="person-text">Kurzbeschreibung (1–2 Sätze). Beitrag im Verein.</p>
+          </div>
+        </article>
+
+      </div>
     </div>
   </div>
 </section>
