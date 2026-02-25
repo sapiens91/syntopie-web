@@ -140,7 +140,10 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
 .grid{display:grid;gap:1.25rem}
 
 @media(min-width:900px){
-  .grid-2{grid-template-columns:1.15fr .85fr}
+  .grid-2{
+    grid-template-columns:1.15fr .85fr;
+    align-items:start; /* Inhalte oben ausrichten */
+  }
 }
 
 .card{
@@ -150,17 +153,26 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
   padding:1.25rem;
 }
 
+/* Bilder generell */
 .card img{
   width:100%;
   height:auto;
   display:block;
 }
 
+/* Bild-Card: keine "lange weiße Card" mehr unter dem Bild */
 .card.image-card{
   padding:0;
   overflow:hidden;
+  background:transparent; /* <- wichtig */
+  border:0;               /* <- wichtig */
 }
-  
+
+/* wenn du trotzdem runde Ecken wie bei anderen Cards willst */
+.card.image-card img{
+  border-radius:16px;
+}
+
 .tag{
   display:inline-block;
   background:#eef7ee;
@@ -174,6 +186,7 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
 .muted{color:var(--muted)}
 .anchor-space{scroll-margin-top:100px}
 
+  
 /* ================= FINANZIERUNG ================= */
 
 .finanzierung-grid{
