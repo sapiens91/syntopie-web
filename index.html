@@ -507,40 +507,55 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 
 
 /* =========================================================
-   10) DIREKTKREDIT-MODELLE
+   10) DIREKTKREDIT-MODELLE (Desktop: 2-2-1, Gold zentriert)
 ========================================================= */
 
-/* Grid für die Modell-Boxen */
+/* Mobile/Tablet: flexibel */
 .modell-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  grid-template-columns: 1fr;
   gap:1.5rem;
+}
+
+/* ab ~720px: 2 Spalten */
+@media (min-width: 720px){
+  .modell-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
 }
 
 /* Basis-Box */
 .modell-box{
-  background:white;
+  background:#fff;
   padding:1.5rem;
   border-radius:14px;
   border:2px solid #ddd;
   transition:all .2s ease;
 }
 
-/* Farben nach Reihenfolge */
+/* Farben nach Reihenfolge (wie bei dir) */
 .modell-grid .modell-box:nth-child(1){ border-color:#2b6cb0; } /* Blau */
 .modell-grid .modell-box:nth-child(2){ border-color:#2f855a; } /* Grün */
 .modell-grid .modell-box:nth-child(3){ border-color:#c53030; } /* Rot */
 .modell-grid .modell-box:nth-child(4){ border-color:#a0aec0; } /* Silber */
 
-/* Gold-Spezialbox */
+/* Gold-Spezialbox: unten zentriert und breiter */
 .modell-grid .modell-box.gold{
   background:linear-gradient(135deg,#fff7d6,#fff);
   border-color:#d4af37;
   box-shadow:0 0 18px rgba(212,175,55,0.3);
-  grid-column:1/-1;
   padding:1.8rem;
 }
 
+/* ab 720px: Gold über beide Spalten + zentriert */
+@media (min-width: 720px){
+  .modell-grid .modell-box.gold{
+    grid-column: 1 / -1;          /* nimmt die ganze Zeile ein */
+    justify-self: center;         /* zentriert innerhalb der Zeile */
+    width: min(920px, 100%);      /* nicht „endlos breit“, sondern schön zentriert */
+  }
+}
 
 /* =========================================================
    11) LEUTE – KACHELWAND
