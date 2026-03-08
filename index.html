@@ -88,7 +88,7 @@ h2{font-size:clamp(1.5rem,3vw,2rem)}
   /* HERO Desktop: Bild neben Text */
   .hero .grid-2{
     grid-template-columns:1fr 1.2fr;
-    align-items:center;
+    align-items:start;
   }
 
   /* Desktop Reihenfolge normal */
@@ -212,8 +212,12 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 .card.image-card{
   padding:0;
   overflow:hidden;
-  background:transparent; /* wichtig */
-  border:0;              /* wichtig */
+  background:transparent;
+  border:0;
+
+  display:flex;
+  flex-direction:column;
+  gap:20px;
 }
 
 /* wenn du trotzdem runde Ecken wie bei anderen Cards willst */
@@ -561,7 +565,7 @@ header.shrink .brand-logo{ width:34px; height:34px; }
    11) LEUTE – KACHELWAND
 ========================================================= */
 
-.leute-head{max-width:72ch;margin:0 0 1.25rem}
+.leute-head{margin:0 0 1.25rem}
 
 .leute-grid{
   display:grid;
@@ -729,11 +733,14 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 
 <!-- HERO -->
 <section class="hero section">
+  <div class="container">
+    <span class="tag">Gemeinschaftlich wohnen – solidarisch finanzieren</span>
+    <h1>Wir sind der Syntopie e.V. Seit 2023 mieten wir ein Haus mit Garten in Frankfurt-Unterliederbach. Wir haben uns zum Ziel gesetzt, gemeinschaftlich, sozial und nachhaltig zu wohnen.
+</h1>
+  </div>
   <div class="container grid grid-2">
     <div>
-      <span class="tag">Gemeinschaftlich wohnen – solidarisch finanzieren</span>
-      <h1>Wir sind der Syntopie e.V. Seit 2023 mieten wir ein Haus mit Garten in Frankfurt-Unterliederbach. Wir haben uns zum Ziel gesetzt, gemeinschaftlich, sozial und nachhaltig zu wohnen.</h1>
-      <p>
+       <p>
         In unserem Wohnprojekt leben wir als WG zusammen. Unser Zusammenleben organisieren wir in regelmäßig stattfindenden Plena. Wir haben eine solidarische Essenskasse und treffen uns
         häufig zu gemeinsamen Mahlzeiten. Jede Person hat ihr Privatzimmer, aber wir nutzen viele Räume gemeinschaftlich, u.a. zwei Küchen, ein großes Wohn- und Esszimmer, einen
         Arbeitsbereich, einen Wintergarten und einen großen Keller, in dem wir eine Werkstatt eingerichtet haben. In unserem großen Garten
@@ -750,7 +757,7 @@ header.shrink .brand-logo{ width:34px; height:34px; }
       </p>
       </div>
     <figure class="card image-card">
-      <img src="img/gruppe.jpg" alt="Gruppe">
+      <img src="img/gruppe.jpg" alt="Gruppenfoto der Bewohner:innen">
     </figure>
     </div>
 </section>
@@ -759,12 +766,15 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 <section id="verein" class="section anchor-space">
   <div class="container grid grid-2">
     <figure class="card image-card">
-      <img src="img/verein.jpg" alt="Verein">
+      <img src="img/verein1.jpg" alt="Vereinsmitglieder der Syntopie beim Diskutieren">
+      <img src="img/logo.png" alt="Logo: Silhouette eines schwarzen und roten Eichhörnchens, die nach Links oben springen, umgeben von einem schwarzen Kreis mit dem Schriftzug Syntopie Wohnprojekt">
     </figure>
     <div class="card">
       <h2>Der Verein</h2>
       <p>
-        Die Satzung des Syntopie e.V. setzt fest, dass der Verein das gemeinschaftliche Wohnen fördern soll. Entscheidungen treffen wir wenn möglich nach dem Konsentprinzip.<br>
+        Die Satzung des Syntopie e.V. setzt fest, dass der Verein das gemeinschaftliche Wohnen fördern soll. Entscheidungen treffen wir wenn möglich nach dem Konsentprinzip.
+        </p>
+        <p>
         Alle Mitglieder sind
         gleichzeitig Bewohner:innen. Zwischen den Mitgliedern
         und dem Verein besteht ein Untermietverhältnis, denn der Verein ist der Hauptmieter des Hauses. Des Weiteren zahlen die Mitglieder Vereinsbeiträge, von denen gemeinsame Anschaffungen finanziert werden.
@@ -773,16 +783,22 @@ header.shrink .brand-logo{ width:34px; height:34px; }
         Aber was heißt „Syntopie“ eigentlich? Syntopie ist ein Kofferwort, gebildet aus „Syntop“ und „Utopie“. Ein Syntop
         (altgriechisch <i>σύν (syn)</i> „zusammen, gemeinsam“ und <i>τόπος (topos)</i> „Ort“) ist ein Lebensraum, in welchem verschiedene Arten oder Populationen koexistieren.
         Eine Utopie (altgriechisch <i>οὐ (ou)</i> „nicht“ und <i>τόπος</i>, also „Nicht-Ort“) ist der Entwurf einer möglichen, zukünftigen, meist aber fiktiven
-        Lebensform oder Gesellschaftsordnung.<br>
+        Lebensform oder Gesellschaftsordnung.
+        </p>
+        <p>
         Eine Syntopie ist nach unserem Verständnis demnach eine Synthese von Individualität und Gemeinschaft.
         In unserem Wohnprojekt heißen wir Vielfalt willkommen und möchten individuelle Entfaltung ermöglichen. Zugleich wollen wir sowohl unser
-        Zusammenleben als auch Haus und Garten nach gemeinschaftlich ausgehandelten Vorstellungen, unabhängig von tradierten Lebensentwürfen, gestalten.<br>
+        Zusammenleben als auch Haus und Garten nach gemeinschaftlich ausgehandelten Vorstellungen, unabhängig von tradierten Lebensentwürfen, gestalten.
+        </p>
+        <p>
         Dafür steht auch unser Logo, das eine Eintracht zwischen zwei Spezies von Eichhörnchen darstellt. Es bringt zudem unseren von Weltoffenheit, Emanzipation und Egalitarismus geprägten Grundkonsens und unser klares Bekenntnis zu Demokratie und Toleranz zum Ausdruck.
         </p>
-      <p>
-        Im Zuge des Erwerbs unseres Hauses werden wir voraussichtlich eine GmbH gründen, die das Haus kauft und es weiter an seine Bewohner:innen vermietet. Diese GmbH wird vermutlich zwei Gesellschafter haben: den Syntopie e.V. und das Mietshäusersyndikat.<br>
+        <p>
+        Im Zuge des Erwerbs unseres Hauses werden wir voraussichtlich eine GmbH gründen, die das Haus kauft und es weiter an seine Bewohner:innen vermietet. Diese GmbH wird vermutlich zwei Gesellschafter haben: den Syntopie e.V. und das Mietshäusersyndikat.
+        </p>
+        <p>  
         Die Entscheidungen des täglichen Lebens verbleiben damit in der Hand der Bewohner:innen, die als Vereinsmitglieder auch die GmbH lenken. Das Mietshäusersyndikat besitzt lediglich grundlegende Vetorechte, die den Verkauf des Hauses betreffen.
-      </p>
+        </p>
     </div>
   </div>
 </section>
@@ -852,7 +868,7 @@ header.shrink .brand-logo{ width:34px; height:34px; }
           </div>
           <div class="person-body">
             <h3 class="person-name">Jakob (aka der neue Jakob)</h3>
-            <p class="person-text">Ein Mann für alles. Egal was, egal wo, Jakob ist da. Ja, genau, es gibt noch einen Jakob, genannt der "neue", obwohl er der ältere ist.</p>
+            <p class="person-text">Jakob kennt das Haus wie seine Westentasche. Ja, genau, es gibt noch einen Jakob, genannt der "neue", obwohl er der ältere ist.</p>
           </div>
         </article>
 
@@ -874,7 +890,7 @@ header.shrink .brand-logo{ width:34px; height:34px; }
           </div>
           <div class="person-body">
             <h3 class="person-name">Eva</h3>
-            <p class="person-text">Im Haus gibt es ungeführ 50 Zimmerplanzen. Eva kennt jede und jedes Blatt an ihr.</p>
+            <p class="person-text">Im Haus gibt es ungeführ 50 Zimmerplanzen. Eva kennt jede und jedes Blatt an ihr. Ursprünglich eine Zwischenmieterin, bewohnt Eva nun das kleinste Zimmer.</p>
           </div>
         </article>
 
@@ -942,7 +958,8 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 <section id="haus" class="section anchor-space">
   <div class="container grid grid-2">
     <figure class="card image-card">
-      <img src="img/haus.png" alt="Haus">
+      <img src="img/haus1.jpeg" alt="Unser Haus vom Garten aus gesehen">
+      <img src="img/garten1.jpeg" alt="Gemüsegarten">
     </figure>
     <div class="card">
       <h2>Das Haus</h2>
@@ -952,13 +969,17 @@ header.shrink .brand-logo{ width:34px; height:34px; }
         steht Menschen in Frankfurt und Umgebung zum Brennen zur Verfügung.
       </p>
       <p>
-        Das Haus bietet zehn Zimmer, fünf Bäder, zwei Küchen und ein Wohnzimmer, sowie einen Arbeitsbereich für das Homeoffice. Für eine Wohngemeinschaft ist das Einrichtungsniveau durchaus gehoben und das Gebäude wurde im Zuge des Anbaus frisch saniert.<br>
+        Das Haus bietet zehn Zimmer, fünf Bäder, zwei Küchen und ein Wohnzimmer, sowie einen Arbeitsbereich für das Homeoffice. Für eine Wohngemeinschaft ist das Einrichtungsniveau durchaus gehoben und das Gebäude wurde im Zuge des Anbaus frisch saniert.
+      </p>
+      <p>  
         Ein Wehrmutstropfen ist, dass die meisten Privatzimmer nicht größer als ca. 15 m² sind. Die Gemeinschaftsräume sind zwar großzügig, aber bieten durch die sehr offene Bauweise von Küche, Wohnzimmer und Arbeitsbereich keine besonders guten Rückzugsmöglichkeiten. Für zwölf (oder mehr?) Personen ist es relativ eng. Daher besteht für uns als Bewohner:innen der Wunsch einen An- bzw. Ausbau des Hauses vorzunehmen.
       </p>
        <p>
         Im Garten haben wir mehrere Gemüse- und Kräuterbeete angelegt, die einen Teil unsers Bedafs decken. Ob Kürbis oder rote Beete, ob Schnittlauch oder Koriander, wir
         lieben es und haben viel Spaß beim Anbau und der Ernte. Gerade für die Kinder ist es wichtig zu sehen, wo die Lebensmittel herkommen. Im hinteren Teil des Garten spenden
-        zahlreiche Bäume im Sommer Schatten und bieten einen gewissen Lärmschutz gegen die nahegelegene Autobahn.<br>
+        zahlreiche Bäume im Sommer Schatten und bieten einen gewissen Lärmschutz gegen die nahegelegene Autobahn.
+        </p>
+        <p>
         Der Garten wird von uns biologisch bewirtschaftet und bietet Vögeln, Insekten und Kleinsäugern Nahrung und Lebensraum. Grünspechte, Kohlmeisen und Turmfalken fühlen sich bei uns ebenso zu Hause wie Wildbienen, Igel und Eichhörnchen. Auch die Nachbarskatze kommt manchmal zu Besuch.
       </p>
     </div>
@@ -979,12 +1000,16 @@ header.shrink .brand-logo{ width:34px; height:34px; }
       </p>
       <p>
         In den meisten Fällen sind die Direktkredite <i>endfällig</i> und haben einen Zins von weniger als 2%. Da die Laufzeit in der Regel mehrere Jahre beträgt, wird so die
-        jährliche Zins- und Tilgungslast für uns deutlich reduziert. Daher suchen wir nach Direktkreditgebern, die mit uns einen indivduellen Kreditvertrag abschließen möchten.<br>
+        jährliche Zins- und Tilgungslast für uns deutlich reduziert. Daher suchen wir nach Direktkreditgebern, die mit uns einen indivduellen Kreditvertrag abschließen möchten.
+        </p>
+        <p>
         Wir wollen ganz transparent sein: Direktkredite sind vor allem ein solidarisches Instrument und bieten durch ihre geringe Verzinsung den Geber:innen kaum finanzelle Anreize. Ohne diese Kredite ist
         es uns allerdings kaum möglich, das Haus zu erwerben, hier zu sozialverträglichen Konditionen zu leben und das Gebäude gemeinsam mit dem Mietshäusersyndikat zu vergesellschaften. 
       </p>
        <p>
-         Der Kaufpreis setzt sich üblicherweise aus dem Erwerb des Grundstücks, des Hauses und den Kaufnebenkosten zusammen. In unserem Fall werden wir voraussichtlich nur das Haus, nicht aber fdas Grundstück erwerben. Das Grundstück wollen wir von der besitzenden privaten Stiftung pachten: Über einen Erbbauvertrag.<br>
+         Der Kaufpreis setzt sich üblicherweise aus dem Erwerb des Grundstücks, des Hauses und den Kaufnebenkosten zusammen. In unserem Fall werden wir voraussichtlich nur das Haus, nicht aber fdas Grundstück erwerben. Das Grundstück wollen wir von der besitzenden privaten Stiftung pachten: Über einen Erbbauvertrag.
+         </p>
+         <p>
          Ein Erbbauvertrag gilt für eine bestimmte Zeit, meist 99 Jahre, als baugleiches Recht. Die Pacht für das Grundstück berechnet sich durch den Erbbauzins. Neben den zu tilgenden Krediten wird die Pacht also vermutlich einen nicht unerheblichen Teil
          unserer jährlichen Kosten ausmachen.
       </p>
@@ -1067,7 +1092,9 @@ header.shrink .brand-logo{ width:34px; height:34px; }
     <h2>Mietshäusersyndikat</h2>
     <p>
       Stand jetzt streben wir an, als Verein und GmbH dem Mietshäusersyndikat beizutreten.
-      Unsere Motivation ist dabei, dass das Haus dauerhaft gemeinschaftlich genutzt wird und nicht in privaten Besitz zurückfallen kann.<br>
+      Unsere Motivation ist dabei, dass das Haus dauerhaft gemeinschaftlich genutzt wird und nicht in privaten Besitz zurückfallen kann.
+      </p>
+      <p>
       Das Mietshäusersyndikat ist ein Zusammenschluss aus derzeit rund 130 Wohnprojekten. Die Projekte unterstüzen sich gegenseitig. Das Konzept, dass das Mietshäusersyndikat als zweiter Gesellschafter mit Vetorecht gegen den Verkauf an jeder der Projekt-GmbHs beteiligt ist, entzieht die Immobilien der Mitglieder dauerhaft dem Mietmarkt.
       </p>
 
@@ -1087,7 +1114,9 @@ header.shrink .brand-logo{ width:34px; height:34px; }
     <h2>FAQ</h2>
     <details>
       <summary>Wie sicher ist ein Direktkredit?</summary>
-      <p>Der Kredit ist nicht ohne Risiko, denn sollte unsere GmbH insolvent sein, kann es passieren, dass Direktkredite nicht zurückgezahlt werden können.<br>
+      <p>Der Kredit ist nicht ohne Risiko, denn sollte unsere GmbH insolvent sein, kann es passieren, dass Direktkredite nicht zurückgezahlt werden können.
+      </p>
+      <p>
          Dies ist allerdings sehr unwahrscheinlich, da die Insolvenzmasse weiterhin wertvoll wäre. Ein Haus und Grunstück wird in Frankfurt am Main in der Zukunft
          wohl immernoch von Wert sein. Vor allem aber sind die Mieteinnahmen der GmbH sehr sicher, weshalb schon die Insolvenz unwahrscheinlich ist.
       </p>
