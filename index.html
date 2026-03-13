@@ -664,6 +664,41 @@ header.shrink .brand-text{ font-size:1.02rem; }
   }
 }
 
+.contact-mail{
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+
+  background:#ffffff;
+  border:1px solid var(--border);
+  border-radius:12px;
+
+  padding:.7rem 1rem;
+  margin-top:.6rem;
+
+  font-weight:500;
+  font-size:1rem;
+
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+
+  transition:all .2s ease;
+}
+
+.contact-mail a{
+  color:var(--brand);
+  text-decoration:none;
+}
+
+.contact-mail:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(0,0,0,.10);
+}
+
+.mail-icon{
+  font-size:1.1rem;
+  opacity:.8;
+}
+
 
 /* =========================================================
    11) LEUTE
@@ -1331,8 +1366,12 @@ header.shrink .brand-text{ font-size:1.02rem; }
       <p>
         Schreib uns, welchen Betrag du dir vorstellen kannst und welche Laufzeit bzw. welchen Zins du dir wünschst. Wir freuen uns über dein Interesse uns einen Direktkredit zu geben. Melde dich gerne unter:
       </p>
-      <p style="margin-bottom:0">
-         ✉ <a href="mailto:syntopie-direktkredite@posteo.de">syntopie-direktkredite@posteo.de</a><br>
+<div class="contact-mail">
+  <span class="mail-icon">✉</span>
+  <a href="mailto:syntopie-direktkredite@posteo.de">
+    syntopie-direktkredite@posteo.de
+  </a>
+</div>
 </div>
 
   </div>
