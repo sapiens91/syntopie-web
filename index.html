@@ -625,7 +625,10 @@ header.shrink .brand-text{ font-size:1.02rem; }
 
 /* =========================================================
    10) DIREKTKREDIT-MODELLE
+   Desktop: 2-2-1 Layout, Goldmodell zentriert
 ========================================================= */
+
+/* Grid Layout */
 
 .modell-grid{
   display:grid;
@@ -635,75 +638,130 @@ header.shrink .brand-text{ font-size:1.02rem; }
 
 @media (min-width:720px){
   .modell-grid{
-    grid-template-columns:repeat(2, minmax(0, 1fr));
+    grid-template-columns:repeat(2,minmax(0,1fr));
     align-items:stretch;
   }
 }
 
+
+/* Basis Box */
+
 .modell-box{
-  background:rgba(255,255,255,.92);
   padding:1.5rem;
   border-radius:14px;
   border:2px solid #ddd;
+  color:#1f1f1f;
+
+  box-shadow:0 8px 22px rgba(0,0,0,.05);
   transition:all .2s ease;
 }
 
-.modell-grid .modell-box:nth-child(1){ border-color:#2b6cb0; }
-.modell-grid .modell-box:nth-child(2){ border-color:#2f855a; }
-.modell-grid .modell-box:nth-child(3){ border-color:#c53030; }
-.modell-grid .modell-box:nth-child(4){ border-color:#a0aec0; }
+.modell-box h4,
+.modell-box p,
+.modell-box strong{
+  color:#1f1f1f;
+}
+
+
+/* Hover Effekt */
+
+.modell-box:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px rgba(0,0,0,.08);
+}
+
+
+/* 1 — Keramiktasse (Blau) */
+
+.modell-grid .modell-box:nth-child(1){
+  border-color:#2b6cb0;
+
+  background:
+  linear-gradient(
+    135deg,
+    #f7fbff 0%,
+    #eef4ff 55%,
+    #e9f0fb 100%
+  );
+}
+
+
+/* 2 — Rote Beete (Grün) */
+
+.modell-grid .modell-box:nth-child(2){
+  border-color:#2f855a;
+
+  background:
+  linear-gradient(
+    135deg,
+    #f8fff8 0%,
+    #eefaf1 55%,
+    #e7f5eb 100%
+  );
+}
+
+
+/* 3 — Ehrenmitgliedschaft (Rot) */
+
+.modell-grid .modell-box:nth-child(3){
+  border-color:#c53030;
+
+  background:
+  linear-gradient(
+    135deg,
+    #fff9f9 0%,
+    #fff0f0 55%,
+    #fde8e8 100%
+  );
+}
+
+
+/* 4 — Baum (Silber/Grau) */
+
+.modell-grid .modell-box:nth-child(4){
+  border-color:#a0aec0;
+
+  background:
+  linear-gradient(
+    135deg,
+    #fcfcfd 0%,
+    #f3f5f8 55%,
+    #eceff3 100%
+  );
+}
+
+
+/* Goldmodell */
 
 .modell-grid .modell-box.gold{
-  background:linear-gradient(135deg, rgba(255,247,214,.95), rgba(255,255,255,.95));
+  background:
+  linear-gradient(
+    135deg,
+    #fffdf4 0%,
+    #fff8dc 45%,
+    #fff3c4 100%
+  );
+
   border-color:#d4af37;
-  box-shadow:0 0 18px rgba(212,175,55,0.3);
+  box-shadow:0 0 18px rgba(212,175,55,.22);
+
   padding:1.8rem;
 }
 
+
+/* Desktop Layout: Goldmodell über ganze Breite */
+
 @media (min-width:720px){
+
   .modell-grid .modell-box.gold{
     grid-column:1 / -1;
     justify-self:center;
-    width:min(920px, 100%);
+    width:min(920px,100%);
   }
+
 }
 
-.contact-mail{
-  display:inline-flex;
-  align-items:center;
-  gap:.6rem;
-
-  background:#E4F2D0;
-  border:1px solid var(--border);
-  border-radius:12px;
-
-  padding:.7rem 1rem;
-  margin-top:.6rem;
-
-  font-weight:500;
-  font-size:1rem;
-
-  box-shadow:0 6px 18px rgba(0,0,0,.06);
-
-  transition:all .2s ease;
-}
-
-.contact-mail a{
-  color:var(--brand);
-  text-decoration:none;
-}
-
-.contact-mail:hover{
-  transform:translateY(-2px);
-  box-shadow:0 10px 24px rgba(0,0,0,.10);
-}
-
-.mail-icon{
-  font-size:1.1rem;
-  opacity:.8;
-}
-
-
+  
 /* =========================================================
    11) LEUTE
 ========================================================= */
