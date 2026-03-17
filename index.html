@@ -14,31 +14,61 @@
 ========================================================= */
 
 :root{
-  --bg:#faf7f2; 
-  --paper:#ffffff; 
-  --text:#1f1f1f; 
+  --bg:#faf7f2;
+  --paper:#ffffff;
+  --text:#1f1f1f;
   --muted:#5d5d5d;
-  --brand:#2e7d32; 
+  --brand:#2e7d32;
   --border:#e7e2da;
-  --bar-bg:#efeae0; 
+  --bar-bg:#efeae0;
   --bar-fill:#2e7d32;
-
   --cta-bg:#fff6e9;
   --cta-border:#f0dcc6;
 }
 
-html,body{
+/* Seitenhintergrund */
+
+html{
+  background-color:#f8f4ec;
+}
+  
+.hero,
+.section,
+.footer{
+  padding:3.5rem 0;
+
+  background-image:url("img/joao-vitor-duarte-k4Lt0CjUnb0-unsplash.jpg");
+  background-repeat:no-repeat;
+  background-size:2000px auto;
+  background-position:center top;
+
+  box-shadow:
+    inset 0 6px 0 rgba(255,255,255,.4),
+    inset 0 -1px 0 rgba(0,0,0,.05);
+}
+
+body{
   margin:0;
   padding:0;
-  background:var(--bg);
+  background:transparent;
   color:var(--text);
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;
+  font-family:"Source Sans 3", system-ui, sans-serif;
   line-height:1.6;
 }
 
-a{color:var(--brand);text-decoration:none}
-a:hover{text-decoration:underline}
-img{max-width:100%;display:block}
+a{
+  color:var(--brand);
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:underline;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
 
 .container{
   max-width:1100px;
@@ -46,52 +76,60 @@ img{max-width:100%;display:block}
   padding:0 1.25rem;
 }
 
-.section{padding:3.5rem 0}
-.anchor-space{scroll-margin-top:100px}
+.section{
+  padding:3.5rem 0;
+}
 
-h1,h2,h3{margin:0 0 .75rem}
-h1{font-size:clamp(1.3rem,2.3vw,1.3rem)}
-h2{font-size:clamp(1.5rem,3vw,2rem)}
+.anchor-space{
+  scroll-margin-top:100px;
+}
 
-.grid{display:grid;gap:1.25rem}
-.muted{color:var(--muted)}
+h1,h2,h3{
+  margin:0 0 .75rem;
+}
 
+h1{
+  font-size:clamp(1.3rem,2.3vw,1.3rem);
+}
 
+h2{
+  font-size:clamp(1.5rem,3vw,2rem);
+}
+
+.grid{
+  display:grid;
+  gap:1.25rem;
+}
+
+.muted{
+  color:var(--muted);
+}
 /* =========================================================
-   2) GRID-LOGIK (Mobile First) + HERO FIX
-   - Mobile: 1 Spalte
-   - Desktop: 2 Spalten
-   - Mobile Hero: Text zuerst, dann Bild
+   2) GRID-LOGIK
 ========================================================= */
 
-/* Default: 1 Spalte */
 .grid-2{
   grid-template-columns:1fr;
 }
 
-/* HERO: auf Mobile untereinander */
 .hero .grid-2{
   grid-template-columns:1fr;
 }
 
-/* Mobile Reihenfolge sichern */
 .hero .grid-2 > div{ order:1; }
 .hero .grid-2 > figure{ order:2; }
 
-/* Desktop: 2 Spalten */
 @media(min-width:900px){
   .grid-2{
     grid-template-columns:1.15fr .85fr;
-    align-items:start; /* Inhalte oben ausrichten */
+    align-items:start;
   }
 
-  /* HERO Desktop: Bild neben Text */
   .hero .grid-2{
     grid-template-columns:1fr 1.2fr;
     align-items:start;
   }
 
-  /* Desktop Reihenfolge normal */
   .hero .grid-2 > div{ order:0; }
   .hero .grid-2 > figure{ order:0; }
 }
@@ -105,9 +143,11 @@ header{
   position:sticky;
   top:0;
   z-index:50;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--border);
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,0,0,.06);
+  box-shadow:0 6px 24px rgba(0,0,0,.05);
   transition:all .25s ease;
 }
 
@@ -115,42 +155,59 @@ header{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  height:68px;
+  height:74px;
   transition:all .25s ease;
 }
 
 .brand-wrap{
   display:flex;
   align-items:center;
-  gap:.6rem;
+  gap:.75rem;
   min-width:0;
 }
 
 .brand-logo{
-  width:40px;
-  height:40px;
+  width:42px;
+  height:42px;
   border-radius:50%;
   object-fit:cover;
   flex:0 0 auto;
   transition:all .25s ease;
+  box-shadow:0 2px 8px rgba(0,0,0,.10);
 }
 
 .brand-text{
   font-weight:800;
   white-space:nowrap;
+  letter-spacing:.2px;
+  font-size:1.1rem;
 }
 
 .nav nav{
   display:flex;
   align-items:center;
+  gap:.2rem;
 }
 
 .nav a{
-  margin-left:1rem;
+  margin-left:0;
   color:var(--text);
+  padding:.55rem .8rem;
+  border-radius:10px;
+  font-weight:500;
+  transition:color .2s ease, background .2s ease, transform .2s ease;
 }
 
-/* Hamburger */
+.nav a:hover{
+  color:var(--brand);
+  background:rgba(46,125,50,.08);
+  text-decoration:none;
+}
+
+.nav a:not(.btn):hover{
+  transform:translateY(-1px);
+}
+
 .menu-toggle{
   display:none;
   background:none;
@@ -160,9 +217,9 @@ header{
   line-height:1;
 }
 
-/* Shrink beim Scrollen */
-header.shrink .nav{ height:60px; }
-header.shrink .brand-logo{ width:34px; height:34px; }
+header.shrink .nav{ height:62px; }
+header.shrink .brand-logo{ width:36px; height:36px; }
+header.shrink .brand-text{ font-size:1.02rem; }
 
 
 /* =========================================================
@@ -172,11 +229,69 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 .btn{
   display:inline-flex;
   align-items:center;
+  justify-content:center;
   background:var(--brand);
-  color:#fff;
-  padding:.7rem 1rem;
+  color:#fff !important;
+  padding:.82rem 1.2rem;
   border-radius:999px;
-  font-weight:600;
+  font-weight:700;
+  line-height:1;
+  border:1px solid rgba(0,0,0,.05);
+  box-shadow:
+    0 10px 24px rgba(46,125,50,.22),
+    inset 0 1px 0 rgba(255,255,255,.18);
+  transition:transform .22s ease, box-shadow .22s ease, background .22s ease, filter .22s ease;
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+.btn:hover{
+  background:#256a2a;
+  color:#fff !important;
+  text-decoration:none;
+  transform:translateY(-2px) scale(1.01);
+  box-shadow:
+    0 14px 30px rgba(46,125,50,.28),
+    inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+.btn:active{
+  transform:translateY(0) scale(.99);
+}
+
+.nav nav a.btn{
+  margin-left:.8rem;
+  padding:.95rem 1.35rem;
+}
+
+@keyframes ctaPulse{
+  0%{
+    box-shadow:
+      0 10px 24px rgba(46,125,50,.22),
+      0 0 0 0 rgba(46,125,50,.30),
+      inset 0 1px 0 rgba(255,255,255,.18);
+  }
+  70%{
+    box-shadow:
+      0 10px 24px rgba(46,125,50,.22),
+      0 0 0 14px rgba(46,125,50,0),
+      inset 0 1px 0 rgba(255,255,255,.18);
+  }
+  100%{
+    box-shadow:
+      0 10px 24px rgba(46,125,50,.22),
+      0 0 0 0 rgba(46,125,50,0),
+      inset 0 1px 0 rgba(255,255,255,.18);
+  }
+}
+
+.nav nav a.btn{
+  animation:ctaPulse 2.8s infinite;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .nav nav a.btn{ animation:none; }
+  .btn, .nav a{ transition:none; }
 }
 
 
@@ -185,8 +300,18 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 ========================================================= */
 
 .hero{
-  background:linear-gradient(180deg,#ffffff 0%, #fff6e9 60%, var(--bg) 100%);
   padding-top:4rem;
+
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,.50),
+      rgba(255,246,233,.50)
+    ),
+    url("img/joao-vitor-duarte-k4Lt0CjUnb0-unsplash.jpg");
+
+  background-repeat:no-repeat;
+  background-size:2000px auto;
+  background-position:center top;
 }
 
 
@@ -195,32 +320,30 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 ========================================================= */
 
 .card{
-  background:var(--paper);
+  background:rgba(255,255,255,.88);
   border:1px solid var(--border);
   border-radius:16px;
   padding:1.25rem;
+  backdrop-filter:blur(2px);
 }
 
-/* Bilder generell */
 .card img{
   width:100%;
   height:auto;
   display:block;
 }
 
-/* Bild-Card: keine "lange weiße Card" mehr unter dem Bild */
 .card.image-card{
   padding:0;
   overflow:hidden;
   background:transparent;
   border:0;
-
+  backdrop-filter:none;
   display:flex;
   flex-direction:column;
   gap:20px;
 }
 
-/* wenn du trotzdem runde Ecken wie bei anderen Cards willst */
 .card.image-card img{
   border-radius:16px;
 }
@@ -237,7 +360,7 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 
 
 /* =========================================================
-   7) FINANZIERUNG (Grid + Progress)
+   7) FINANZIERUNG
 ========================================================= */
 
 .finanzierung-grid{
@@ -273,7 +396,7 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 
 
 /* =========================================================
-   8) FINANCE TERMINAL (Stock-Look) – ORIGINAL KOMPLETT
+   8) FINANCE TERMINAL
 ========================================================= */
 
 .finance-terminal{
@@ -283,13 +406,12 @@ header.shrink .brand-logo{ width:34px; height:34px; }
     #0f1412;
   color:#eef5ef;
   border:1px solid rgba(255,255,255,.08);
-  box-shadow: 0 18px 45px rgba(0,0,0,.28);
+  box-shadow:0 18px 45px rgba(0,0,0,.28);
   overflow:hidden;
 }
 
-.finance-terminal .muted{ color: rgba(238,245,239,.72); }
+.finance-terminal .muted{ color:rgba(238,245,239,.72); }
 
-/* Header */
 .finance-terminal .ft-header{
   display:flex;
   justify-content:space-between;
@@ -300,16 +422,8 @@ header.shrink .brand-logo{ width:34px; height:34px; }
   margin-bottom:1rem;
 }
 
-.finance-terminal .ft-title{
-  margin:0;
-  letter-spacing:.2px;
-}
-
-.finance-terminal .ft-sub{
-  margin-top:.15rem;
-  font-size:.92rem;
-  color: rgba(238,245,239,.68);
-}
+.finance-terminal .ft-title{ margin:0; letter-spacing:.2px; }
+.finance-terminal .ft-sub{ margin-top:.15rem; font-size:.92rem; color:rgba(238,245,239,.68); }
 
 .finance-terminal .ft-badge{
   display:flex;
@@ -317,7 +431,7 @@ header.shrink .brand-logo{ width:34px; height:34px; }
   gap:.5rem;
   padding:.35rem .6rem;
   border-radius:999px;
-  background: rgba(255,255,255,.06);
+  background:rgba(255,255,255,.06);
   border:1px solid rgba(255,255,255,.10);
   font-weight:700;
   font-size:.78rem;
@@ -325,15 +439,16 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 }
 
 .finance-terminal .ft-badge .dot{
-  width:.55rem; height:.55rem; border-radius:50%;
-  background: #46d36a;
-  box-shadow: 0 0 0 3px rgba(70,211,106,.18);
+  width:.55rem;
+  height:.55rem;
+  border-radius:50%;
+  background:#46d36a;
+  box-shadow:0 0 0 3px rgba(70,211,106,.18);
 }
 
-/* KPI grid */
 .finance-terminal .ft-kpis{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));
   gap:.85rem;
   margin-bottom:1rem;
 }
@@ -341,23 +456,23 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 .finance-terminal .kpi{
   padding:.85rem .9rem;
   border-radius:14px;
-  background: rgba(255,255,255,.05);
+  background:rgba(255,255,255,.05);
   border:1px solid rgba(255,255,255,.09);
-  backdrop-filter: blur(6px);
-  transition: transform .15s ease, border-color .15s ease, background .15s ease;
+  backdrop-filter:blur(6px);
+  transition:transform .15s ease, border-color .15s ease, background .15s ease;
 }
 
 .finance-terminal .kpi:hover{
-  transform: translateY(-2px);
-  background: rgba(255,255,255,.07);
-  border-color: rgba(255,255,255,.14);
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.07);
+  border-color:rgba(255,255,255,.14);
 }
 
 .finance-terminal .kpi-label{
   font-size:.78rem;
   letter-spacing:.4px;
   text-transform:uppercase;
-  color: rgba(238,245,239,.62);
+  color:rgba(238,245,239,.62);
   line-height:1.2;
   overflow-wrap:anywhere;
 }
@@ -366,30 +481,27 @@ header.shrink .brand-logo{ width:34px; height:34px; }
   margin-top:.35rem;
   font-weight:800;
   letter-spacing:.2px;
-
-  font-size: clamp(1.05rem, 2.1vw, 1.35rem);
+  font-size:clamp(1.05rem, 2.1vw, 1.35rem);
   line-height:1.15;
   overflow-wrap:anywhere;
-  word-break: break-word;
-
-  font-variant-numeric: tabular-nums;
+  word-break:break-word;
+  font-variant-numeric:tabular-nums;
 }
 
 .finance-terminal .kpi-hint{
   margin-top:.25rem;
   font-size:.85rem;
-  color: rgba(238,245,239,.55);
+  color:rgba(238,245,239,.55);
   line-height:1.2;
 }
 
-/* Ticker */
 .finance-terminal .ft-ticker{
   display:flex;
   gap:.75rem;
   align-items:center;
   padding:.65rem .8rem;
   border-radius:12px;
-  background: linear-gradient(90deg, rgba(46,125,50,.18), rgba(255,255,255,.04));
+  background:linear-gradient(90deg, rgba(46,125,50,.18), rgba(255,255,255,.04));
   border:1px solid rgba(255,255,255,.08);
   margin-bottom:1rem;
 }
@@ -398,24 +510,23 @@ header.shrink .brand-logo{ width:34px; height:34px; }
   font-size:.75rem;
   font-weight:800;
   letter-spacing:.6px;
-  color: rgba(238,245,239,.7);
+  color:rgba(238,245,239,.7);
   white-space:nowrap;
 }
 
 .finance-terminal .ticker-text{
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size:.92rem;
-  color: rgba(238,245,239,.9);
+  color:rgba(238,245,239,.9);
   overflow:hidden;
-  text-overflow: ellipsis;
+  text-overflow:ellipsis;
   white-space:nowrap;
 }
 
-/* Progress / Chart bar */
 .finance-terminal .ft-progress{
   padding:.85rem .9rem;
   border-radius:14px;
-  background: rgba(255,255,255,.04);
+  background:rgba(255,255,255,.04);
   border:1px solid rgba(255,255,255,.08);
 }
 
@@ -427,16 +538,15 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 }
 
 .finance-terminal .ft-percent{
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-weight:800;
-  color: rgba(238,245,239,.9);
+  color:rgba(238,245,239,.9);
 }
 
-/* nutzt deine .progress-bar/.progress-fill, wird hier "terminalisiert" */
 .finance-terminal .ft-bar{
-  height: 12px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.08);
+  height:12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
   border:1px solid rgba(255,255,255,.08);
   overflow:hidden;
 }
@@ -445,9 +555,9 @@ header.shrink .brand-logo{ width:34px; height:34px; }
   height:100%;
   width:0%;
   border-radius:999px;
-  background: linear-gradient(90deg, #2e7d32, #46d36a);
-  box-shadow: 0 0 18px rgba(70,211,106,.22);
-  transition: width .6s ease;
+  background:linear-gradient(90deg, #2e7d32, #46d36a);
+  box-shadow:0 0 18px rgba(70,211,106,.22);
+  transition:width .6s ease;
 }
 
 .finance-terminal .ft-scale{
@@ -456,20 +566,23 @@ header.shrink .brand-logo{ width:34px; height:34px; }
   gap:.5rem;
   margin-top:.55rem;
   font-size:.78rem;
-  color: rgba(238,245,239,.55);
+  color:rgba(238,245,239,.55);
 }
 
-/* Responsive */
-@media (max-width: 900px){
+.finance-terminal{
+  align-self:start;
+}
+
+@media (max-width:900px){
   .finance-terminal .ft-header{ align-items:flex-start; }
 }
 
-@media (max-width: 520px){
+@media (max-width:520px){
   .finance-terminal .ft-header{ align-items:center; }
 }
 
-@media (max-width: 420px){
-  .finance-terminal .kpi-value{ font-size: 1.05rem; }
+@media (max-width:420px){
+  .finance-terminal .kpi-value{ font-size:1.05rem; }
 }
 
 
@@ -478,27 +591,27 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 ========================================================= */
 
 .cta-section{
-  background:var(--cta-bg);
+  background:rgba(255,246,233,.72);
   border-top:1px solid var(--cta-border);
   border-bottom:1px solid var(--cta-border);
 }
 
 .cta-grid{
   display:grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns:1fr 2fr;
   gap:2rem;
   align-items:start;
 }
 
 @media(min-width:900px){
   .cta-grid{
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns:1fr 2fr;
     align-items:start;
   }
 }
 
 .cta-card{
-  background:rgba(255,255,255,.85);
+  background:rgba(255,255,255,.82);
   border:1px solid var(--cta-border);
 }
 
@@ -511,58 +624,191 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 
 
 /* =========================================================
-   10) DIREKTKREDIT-MODELLE (Desktop: 2-2-1, Gold zentriert)
+   10) DIREKTKREDIT-MODELLE
+   Desktop: 2-2-1 Layout, Goldmodell zentriert
 ========================================================= */
 
-/* Mobile/Tablet: flexibel */
+/* Grid Layout */
+
 .modell-grid{
   display:grid;
-  grid-template-columns: 1fr;
+  grid-template-columns:1fr;
   gap:1.5rem;
 }
 
-/* ab ~720px: 2 Spalten */
-@media (min-width: 720px){
+@media (min-width:720px){
   .modell-grid{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: stretch;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    align-items:stretch;
   }
 }
 
-/* Basis-Box */
+
+/* Basis Box */
+
 .modell-box{
-  background:#fff;
   padding:1.5rem;
   border-radius:14px;
   border:2px solid #ddd;
+  color:#1f1f1f;
+
+  box-shadow:0 8px 22px rgba(0,0,0,.05);
   transition:all .2s ease;
 }
 
-/* Farben nach Reihenfolge (wie bei dir) */
-.modell-grid .modell-box:nth-child(1){ border-color:#2b6cb0; } /* Blau */
-.modell-grid .modell-box:nth-child(2){ border-color:#2f855a; } /* Grün */
-.modell-grid .modell-box:nth-child(3){ border-color:#c53030; } /* Rot */
-.modell-grid .modell-box:nth-child(4){ border-color:#a0aec0; } /* Silber */
+.modell-box h4,
+.modell-box p,
+.modell-box strong{
+  color:#1f1f1f;
+}
 
-/* Gold-Spezialbox: unten zentriert und breiter */
+
+/* Hover Effekt */
+
+.modell-box:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px rgba(0,0,0,.08);
+}
+
+
+/* 1 — Keramiktasse (Blau) */
+
+.modell-grid .modell-box:nth-child(1){
+  border-color:#2b6cb0;
+
+  background:
+  linear-gradient(
+    135deg,
+    #f7fbff 0%,
+    #eef4ff 55%,
+    #e9f0fb 100%
+  );
+}
+
+
+/* 2 — Rote Beete (Grün) */
+
+.modell-grid .modell-box:nth-child(2){
+  border-color:#2f855a;
+
+  background:
+  linear-gradient(
+    135deg,
+    #f8fff8 0%,
+    #eefaf1 55%,
+    #e7f5eb 100%
+  );
+}
+
+
+/* 3 — Ehrenmitgliedschaft (Rot) */
+
+.modell-grid .modell-box:nth-child(3){
+  border-color:#c53030;
+
+  background:
+  linear-gradient(
+    135deg,
+    #fff9f9 0%,
+    #fff0f0 55%,
+    #fde8e8 100%
+  );
+}
+
+
+/* 4 — Baum (Silber/Grau) */
+
+.modell-grid .modell-box:nth-child(4){
+  border-color:#a0aec0;
+
+  background:
+  linear-gradient(
+    135deg,
+    #fcfcfd 0%,
+    #f3f5f8 55%,
+    #eceff3 100%
+  );
+}
+
+
+/* Goldmodell */
+
 .modell-grid .modell-box.gold{
-  background:linear-gradient(135deg,#fff7d6,#fff);
+  background:
+  linear-gradient(
+    135deg,
+    #fffdf4 0%,
+    #fff8dc 45%,
+    #fff3c4 100%
+  );
+
   border-color:#d4af37;
-  box-shadow:0 0 18px rgba(212,175,55,0.3);
+  box-shadow:0 0 18px rgba(212,175,55,.22);
+
   padding:1.8rem;
 }
 
-/* ab 720px: Gold über beide Spalten + zentriert */
-@media (min-width: 720px){
+
+/* Desktop Layout: Goldmodell über ganze Breite */
+
+@media (min-width:720px){
+
   .modell-grid .modell-box.gold{
-    grid-column: 1 / -1;          /* nimmt die ganze Zeile ein */
-    justify-self: center;         /* zentriert innerhalb der Zeile */
-    width: min(920px, 100%);      /* nicht „endlos breit“, sondern schön zentriert */
+    grid-column:1 / -1;
+    justify-self:center;
+    width:min(920px,100%);
   }
+
+}
+
+  .contact-mail{
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+
+  background:#ffffff;
+  border:1px solid var(--border);
+  border-radius:12px;
+
+  padding:.7rem 1rem;
+  margin-top:1rem;
+
+  font-weight:500;
+  color:#1f1f1f;
+
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+
+.contact-mail a{
+  color:var(--brand);
+  text-decoration:none;
+}
+
+.contact-mail:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(0,0,0,.10);
+}
+
+.modell-box{
+  position: relative;
+  padding-right: 110px;
+  overflow: hidden;
+}
+
+.modell-icon{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 100px !important;
+  height: auto;
+  max-width: 200px;
+  z-index: 2;
+  display: block;
+  object-fit: contain;
 }
 
 /* =========================================================
-   11) LEUTE – KACHELWAND
+   11) LEUTE
 ========================================================= */
 
 .leute-head{margin:0 0 1.25rem}
@@ -575,7 +821,7 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 }
 
 .person{
-  background:var(--paper);
+  background:rgba(255,255,255,.88);
   border:1px solid var(--border);
   border-radius:16px;
   overflow:hidden;
@@ -589,7 +835,7 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 }
 
 .person-img{
-  aspect-ratio: 4 / 3;
+  aspect-ratio:4 / 3;
   background:var(--bar-bg);
   overflow:hidden;
 }
@@ -605,14 +851,13 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 .person-name{margin:0 0 .35rem;font-size:1.05rem}
 .person-text{margin:0;color:var(--muted);font-size:.95rem;line-height:1.45}
 
-/* Responsive */
-@media (max-width: 980px){
+@media (max-width:980px){
   .leute-grid{grid-template-columns:repeat(3, minmax(0,1fr))}
 }
-@media (max-width: 720px){
+@media (max-width:720px){
   .leute-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
 }
-@media (max-width: 420px){
+@media (max-width:420px){
   .leute-grid{grid-template-columns:1fr}
 }
 
@@ -625,11 +870,12 @@ header.shrink .brand-logo{ width:34px; height:34px; }
   border-top:1px solid var(--border);
   padding:2rem 0;
   color:var(--muted);
+  background:rgba(255,255,255,.35);
 }
 
 
 /* =========================================================
-   13) MOBILE NAV (dein Original)
+   13) MOBILE NAV
 ========================================================= */
 
 @media (max-width:700px){
@@ -659,16 +905,23 @@ header.shrink .brand-logo{ width:34px; height:34px; }
     top:100%;
     left:0;
     right:0;
-    background:#fff;
+    background:rgba(255,255,255,.98);
     border-bottom:1px solid var(--border);
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
     padding:1rem;
     display:none;
     flex-direction:column;
-    gap:.4rem;
+    gap:.45rem;
   }
 
   .nav nav a{
     margin:0;
+    border-radius:12px;
+    padding:.8rem .9rem;
+  }
+
+  .nav nav a:hover{
+    background:rgba(46,125,50,.08);
   }
 
   .nav nav a.btn{
@@ -683,6 +936,7 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 
   header{
     backdrop-filter:none;
+    -webkit-backdrop-filter:none;
   }
 
   header.shrink .nav{
@@ -695,6 +949,7 @@ header.shrink .brand-logo{ width:34px; height:34px; }
   }
 }
 </style>
+
 </head>
 
 
@@ -766,8 +1021,8 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 <section id="verein" class="section anchor-space">
   <div class="container grid grid-2">
     <figure class="card image-card">
+      <img src="img/logo.png" style="width:200px; display:block; margin:20px auto;" alt="Logo: Silhouette eines schwarzen und roten Eichhörnchens, die nach Links oben springen, umgeben von einem schwarzen Kreis mit dem Schriftzug Syntopie Wohnprojekt">
       <img src="img/verein1.jpg" alt="Vereinsmitglieder der Syntopie beim Diskutieren">
-      <img src="img/logo.png" alt="Logo: Silhouette eines schwarzen und roten Eichhörnchens, die nach Links oben springen, umgeben von einem schwarzen Kreis mit dem Schriftzug Syntopie Wohnprojekt">
     </figure>
     <div class="card">
       <h2>Der Verein</h2>
@@ -1157,7 +1412,7 @@ header.shrink .brand-logo{ width:34px; height:34px; }
     💚💚💚 Direktkreditmodelle 💚💚💚
   </h3>
 
-  <p style="text-align:center;color:#5d5d5d;max-width:700px;margin:0 auto 2rem auto;">
+  <p style="text-align:center;max-width:700px;margin:0 auto 2rem auto;">
     Unterstütze unser Hausprojekt mit einem Direktkredit – und wähle das Modell,
     das zu dir passt. Neben fairen Zinsen erhältst du eine besondere Syntopie-Prämie
     als Zeichen unserer Wertschätzung.
@@ -1167,46 +1422,51 @@ header.shrink .brand-logo{ width:34px; height:34px; }
 
     <!-- Tasse -->
     <div class="modell-box">
-      <h4 style="margin-top:0;">☕ Syntopie-Keramiktasse</h4>
+      <img src="img/Dikr/Tasse.png" class="modell-icon" alt="Keramiktasse">
+      <h4 style="margin-top:0;">Modell 1: Syntopie-Keramiktasse</h4>
       <p style="margin:.5rem 0;"><strong>1,5–2 % Zinsen</strong></p>
-      <p style="margin:.5rem 0;color:#5d5d5d;">ab 5 Jahre Laufzeit</p>
-      <p style="margin:.5rem 0;color:#5d5d5d;">ab 1.000 €</p>
-      <p style="margin:.5rem 0;color:#5d5d5d;">"Aller Anfang ist schwer, aber Hauptsache man fängt an" Gundula Grundstück</p>
+      <p style="margin:.5rem 0;">ab 5 Jahre Laufzeit</p>
+      <p style="margin:.5rem 0;">ab 1.000 €</p>
+      <p style="margin:.5rem 0;">"Aller Anfang ist schwer, aber Hauptsache man fängt an" Gundula Grundstück</p>
     </div>
 
     <!-- Rote Beete -->
     <div class="modell-box">
-      <h4 style="margin-top:0;">🥬 Syntopie-Rote-Beete im Glas</h4>
+      <img src="img/Dikr/RoteBeete.png" class="modell-icon" alt="Rote Beete im Glas">
+      <h4 style="margin-top:0;">Modell 2: Syntopie-Rote-Beete im Glas</h4>
       <p style="margin:.5rem 0;"><strong>1–2 % Zinsen</strong></p>
-      <p style="margin:.5rem 0;color:#5d5d5d;">ab 8 Jahre Laufzeit</p>
-      <p style="margin:.5rem 0;color:#5d5d5d;">ab 1.000 €</p>
-      <p style="margin:.5rem 0;color:#5d5d5d;">"Zeit ist Geld" Benjamin Franklin </p>
+      <p style="margin:.5rem 0;">ab 8 Jahre Laufzeit</p>
+      <p style="margin:.5rem 0;">ab 1.000 €</p>
+      <p style="margin:.5rem 0;">"Zeit ist Geld" Benjamin Franklin </p>
     </div>
 
     <!-- Ehrenmitgliedschaft -->
     <div class="modell-box">
-      <h4 style="margin-top:0;">🌿 Ehrenmitgliedschaft</h4>
+      <img src="img/Dikr/Orden.png" class="modell-icon" alt="Orden">
+      <h4 style="margin-top:0;">Modell 3: Ehrenmitgliedschaft</h4>
       <p style="margin:.5rem 0;"><strong>0–1 % Zinsen</strong></p>
-      <p style="margin:.5rem 0;color:#5d5d5d;">ab 10 Jahre Laufzeit</p>
-      <p style="margin:.5rem 0;color:#5d5d5d;">ab 10.000 €</p>
-      <p style="margin:.5rem 0;color:#5d5d5d;">"Machen ist wie wollen, nur krasser" Felix von Bares </p>
+      <p style="margin:.5rem 0;">ab 10 Jahre Laufzeit</p>
+      <p style="margin:.5rem 0;">ab 10.000 €</p>
+      <p style="margin:.5rem 0;">"Machen ist wie wollen, nur krasser" Felix von Bares </p>
     </div>
 
     <!-- Baum -->
     <div class="modell-box">
-      <h4 style="margin-top:0;">🌳 Baum mit Namensschild</h4>
+      <img src="img/Dikr/Baum.png" class="modell-icon" alt="Baum">
+      <h4 style="margin-top:0;">Modell 4: Baum mit Namensschild</h4>
       <p style="margin:.5rem 0;"><strong>0–1 % Zinsen</strong></p>
-      <p style="margin:.5rem 0;color:#5d5d5d;">ab 15 Jahre Laufzeit</p>
-      <p style="margin:.5rem 0;color:#5d5d5d;">ab 10.000 €</p>
-      <p style="margin:.5rem 0;color:#5d5d5d;">"Haben ist besser als brauchen" Warren Buffett </p>
+      <p style="margin:.5rem 0;">ab 15 Jahre Laufzeit</p>
+      <p style="margin:.5rem 0;">ab 10.000 €</p>
+      <p style="margin:.5rem 0;">"Haben ist besser als brauchen" Warren Buffett </p>
     </div>
 
     <!-- Goldene Medaille -->
    <div class="modell-box gold">
-      <h4 style="margin-top:0;">🏅 Goldene Solidaritäts-Medaille</h4>
+     <img src="img/Dikr/Pokal.png" class="modell-icon" alt="Pokal">
+      <h4 style="margin-top:0;">Modell 5: Goldene Solidaritäts-Medaille</h4>
       <p style="margin:.5rem 0;"><strong>0–1 % Zinsen</strong></p>
-      <p style="margin:.5rem 0;color:#5d5d5d;">15 Jahre Laufzeit</p>
-      <p style="margin:.5rem 0;color:#5d5d5d;">ab 100.000 €</p>
+      <p style="margin:.5rem 0;">15 Jahre Laufzeit</p>
+      <p style="margin:.5rem 0;">ab 100.000 €</p>
       <p style="margin-top:1rem;font-weight:500;">
         + Ehrenmitgliedschaft, Namensschild im Garten,<br>
         Urkunde & optionaler Pressetermin
@@ -1217,8 +1477,12 @@ header.shrink .brand-logo{ width:34px; height:34px; }
       <p>
         Schreib uns, welchen Betrag du dir vorstellen kannst und welche Laufzeit bzw. welchen Zins du dir wünschst. Wir freuen uns über dein Interesse uns einen Direktkredit zu geben. Melde dich gerne unter:
       </p>
-      <p style="margin-bottom:0">
-         ✉ <a href="mailto:syntopie-direktkredite@posteo.de">syntopie-direktkredite@posteo.de</a><br>
+<div class="contact-mail">
+  <span class="mail-icon">✉</span>
+  <a href="mailto:syntopie-direktkredite@posteo.de">
+    syntopie-direktkredite@posteo.de
+  </a>
+</div>
 </div>
 
   </div>
