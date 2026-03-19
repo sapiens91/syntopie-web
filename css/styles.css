@@ -1,1 +1,941 @@
-vxvxcv
+<style>
+/* =========================================================
+   1) ROOT & BASIS
+========================================================= */
+
+:root{
+  --bg:#faf7f2;
+  --paper:#ffffff;
+  --text:#1f1f1f;
+  --muted:#5d5d5d;
+  --brand:#2e7d32;
+  --border:#e7e2da;
+  --bar-bg:#efeae0;
+  --bar-fill:#2e7d32;
+  --cta-bg:#fff6e9;
+  --cta-border:#f0dcc6;
+}
+
+/* Seitenhintergrund */
+
+html{
+  background-color:#f8f4ec;
+}
+  
+.hero,
+.section,
+.footer{
+  padding:3.5rem 0;
+
+  background-image:url("img/joao-vitor-duarte-k4Lt0CjUnb0-unsplash.jpg");
+  background-repeat:no-repeat;
+  background-size:2000px auto;
+  background-position:center top;
+
+  box-shadow:
+    inset 0 6px 0 rgba(255,255,255,.4),
+    inset 0 -1px 0 rgba(0,0,0,.05);
+}
+
+body{
+  margin:0;
+  padding:0;
+  background:transparent;
+  color:var(--text);
+  font-family:"Source Sans 3", system-ui, sans-serif;
+  line-height:1.6;
+}
+
+a{
+  color:var(--brand);
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:underline;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 1.25rem;
+}
+
+.section{
+  padding:3.5rem 0;
+}
+
+.anchor-space{
+  scroll-margin-top:100px;
+}
+
+h1,h2,h3{
+  margin:0 0 .75rem;
+}
+
+h1{
+  font-size:clamp(1.3rem,2.3vw,1.3rem);
+}
+
+h2{
+  font-size:clamp(1.5rem,3vw,2rem);
+}
+
+.grid{
+  display:grid;
+  gap:1.25rem;
+}
+
+.muted{
+  color:var(--muted);
+}
+/* =========================================================
+   2) GRID-LOGIK
+========================================================= */
+
+.grid-2{
+  grid-template-columns:1fr;
+}
+
+.hero .grid-2{
+  grid-template-columns:1fr;
+}
+
+.hero .grid-2 > div{ order:1; }
+.hero .grid-2 > figure{ order:2; }
+
+@media(min-width:900px){
+  .grid-2{
+    grid-template-columns:1.15fr .85fr;
+    align-items:start;
+  }
+
+  .hero .grid-2{
+    grid-template-columns:1fr 1.2fr;
+    align-items:start;
+  }
+
+  .hero .grid-2 > div{ order:0; }
+  .hero .grid-2 > figure{ order:0; }
+}
+
+
+/* =========================================================
+   3) HEADER / NAV
+========================================================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,0,0,.06);
+  box-shadow:0 6px 24px rgba(0,0,0,.05);
+  transition:all .25s ease;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:74px;
+  transition:all .25s ease;
+}
+
+.brand-wrap{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  min-width:0;
+}
+
+.brand-logo{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  object-fit:cover;
+  flex:0 0 auto;
+  transition:all .25s ease;
+  box-shadow:0 2px 8px rgba(0,0,0,.10);
+}
+
+.brand-text{
+  font-weight:800;
+  white-space:nowrap;
+  letter-spacing:.2px;
+  font-size:1.1rem;
+}
+
+.nav nav{
+  display:flex;
+  align-items:center;
+  gap:.2rem;
+}
+
+.nav a{
+  margin-left:0;
+  color:var(--text);
+  padding:.55rem .8rem;
+  border-radius:10px;
+  font-weight:500;
+  transition:color .2s ease, background .2s ease, transform .2s ease;
+}
+
+.nav a:hover{
+  color:var(--brand);
+  background:rgba(46,125,50,.08);
+  text-decoration:none;
+}
+
+.nav a:not(.btn):hover{
+  transform:translateY(-1px);
+}
+
+.menu-toggle{
+  display:none;
+  background:none;
+  border:none;
+  font-size:1.8rem;
+  cursor:pointer;
+  line-height:1;
+}
+
+header.shrink .nav{ height:62px; }
+header.shrink .brand-logo{ width:36px; height:36px; }
+header.shrink .brand-text{ font-size:1.02rem; }
+
+
+/* =========================================================
+   4) BUTTONS
+========================================================= */
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--brand);
+  color:#fff !important;
+  padding:.82rem 1.2rem;
+  border-radius:999px;
+  font-weight:700;
+  line-height:1;
+  border:1px solid rgba(0,0,0,.05);
+  box-shadow:
+    0 10px 24px rgba(46,125,50,.22),
+    inset 0 1px 0 rgba(255,255,255,.18);
+  transition:transform .22s ease, box-shadow .22s ease, background .22s ease, filter .22s ease;
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+.btn:hover{
+  background:#256a2a;
+  color:#fff !important;
+  text-decoration:none;
+  transform:translateY(-2px) scale(1.01);
+  box-shadow:
+    0 14px 30px rgba(46,125,50,.28),
+    inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+.btn:active{
+  transform:translateY(0) scale(.99);
+}
+
+.nav nav a.btn{
+  margin-left:.8rem;
+  padding:.95rem 1.35rem;
+}
+
+@keyframes ctaPulse{
+  0%{
+    box-shadow:
+      0 10px 24px rgba(46,125,50,.22),
+      0 0 0 0 rgba(46,125,50,.30),
+      inset 0 1px 0 rgba(255,255,255,.18);
+  }
+  70%{
+    box-shadow:
+      0 10px 24px rgba(46,125,50,.22),
+      0 0 0 14px rgba(46,125,50,0),
+      inset 0 1px 0 rgba(255,255,255,.18);
+  }
+  100%{
+    box-shadow:
+      0 10px 24px rgba(46,125,50,.22),
+      0 0 0 0 rgba(46,125,50,0),
+      inset 0 1px 0 rgba(255,255,255,.18);
+  }
+}
+
+.nav nav a.btn{
+  animation:ctaPulse 2.8s infinite;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .nav nav a.btn{ animation:none; }
+  .btn, .nav a{ transition:none; }
+}
+
+
+/* =========================================================
+   5) HERO
+========================================================= */
+
+.hero{
+  padding-top:4rem;
+
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,.50),
+      rgba(255,246,233,.50)
+    ),
+    url("img/joao-vitor-duarte-k4Lt0CjUnb0-unsplash.jpg");
+
+  background-repeat:no-repeat;
+  background-size:2000px auto;
+  background-position:center top;
+}
+
+
+/* =========================================================
+   6) CARDS & MEDIA
+========================================================= */
+
+.card{
+  background:rgba(255,255,255,.88);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:1.25rem;
+  backdrop-filter:blur(2px);
+}
+
+.card img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.card.image-card{
+  padding:0;
+  overflow:hidden;
+  background:transparent;
+  border:0;
+  backdrop-filter:none;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.card.image-card img{
+  border-radius:16px;
+}
+
+.tag{
+  display:inline-block;
+  background:#eef7ee;
+  color:var(--brand);
+  border-radius:999px;
+  padding:.25rem .6rem;
+  font-size:.8rem;
+  margin-bottom:.75rem;
+}
+
+
+/* =========================================================
+   7) FINANZIERUNG
+========================================================= */
+
+.finanzierung-grid{
+  display:grid;
+  gap:1.25rem;
+}
+
+@media(min-width:900px){
+  .finanzierung-grid{
+    grid-template-columns:1.2fr 0.8fr;
+  }
+}
+
+@media(max-width:899px){
+  .finanzierung-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+.progress-bar{
+  width:100%;
+  height:14px;
+  background:var(--bar-bg);
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  width:0;
+  background:var(--bar-fill);
+}
+
+
+/* =========================================================
+   8) FINANCE TERMINAL
+========================================================= */
+
+.finance-terminal{
+  background:
+    radial-gradient(1200px 600px at 10% 0%, rgba(46,125,50,.18), transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(43,108,176,.16), transparent 55%),
+    #0f1412;
+  color:#eef5ef;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 18px 45px rgba(0,0,0,.28);
+  overflow:hidden;
+}
+
+.finance-terminal .muted{ color:rgba(238,245,239,.72); }
+
+.finance-terminal .ft-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:1rem;
+  padding-bottom:.75rem;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  margin-bottom:1rem;
+}
+
+.finance-terminal .ft-title{ margin:0; letter-spacing:.2px; }
+.finance-terminal .ft-sub{ margin-top:.15rem; font-size:.92rem; color:rgba(238,245,239,.68); }
+
+.finance-terminal .ft-badge{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.35rem .6rem;
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
+  font-weight:700;
+  font-size:.78rem;
+  letter-spacing:.5px;
+}
+
+.finance-terminal .ft-badge .dot{
+  width:.55rem;
+  height:.55rem;
+  border-radius:50%;
+  background:#46d36a;
+  box-shadow:0 0 0 3px rgba(70,211,106,.18);
+}
+
+.finance-terminal .ft-kpis{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));
+  gap:.85rem;
+  margin-bottom:1rem;
+}
+
+.finance-terminal .kpi{
+  padding:.85rem .9rem;
+  border-radius:14px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.09);
+  backdrop-filter:blur(6px);
+  transition:transform .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.finance-terminal .kpi:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.07);
+  border-color:rgba(255,255,255,.14);
+}
+
+.finance-terminal .kpi-label{
+  font-size:.78rem;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+  color:rgba(238,245,239,.62);
+  line-height:1.2;
+  overflow-wrap:anywhere;
+}
+
+.finance-terminal .kpi-value{
+  margin-top:.35rem;
+  font-weight:800;
+  letter-spacing:.2px;
+  font-size:clamp(1.05rem, 2.1vw, 1.35rem);
+  line-height:1.15;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+  font-variant-numeric:tabular-nums;
+}
+
+.finance-terminal .kpi-hint{
+  margin-top:.25rem;
+  font-size:.85rem;
+  color:rgba(238,245,239,.55);
+  line-height:1.2;
+}
+
+.finance-terminal .ft-ticker{
+  display:flex;
+  gap:.75rem;
+  align-items:center;
+  padding:.65rem .8rem;
+  border-radius:12px;
+  background:linear-gradient(90deg, rgba(46,125,50,.18), rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.08);
+  margin-bottom:1rem;
+}
+
+.finance-terminal .ticker-label{
+  font-size:.75rem;
+  font-weight:800;
+  letter-spacing:.6px;
+  color:rgba(238,245,239,.7);
+  white-space:nowrap;
+}
+
+.finance-terminal .ticker-text{
+  font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size:.92rem;
+  color:rgba(238,245,239,.9);
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.finance-terminal .ft-progress{
+  padding:.85rem .9rem;
+  border-radius:14px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.finance-terminal .ft-progress-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:.6rem;
+}
+
+.finance-terminal .ft-percent{
+  font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight:800;
+  color:rgba(238,245,239,.9);
+}
+
+.finance-terminal .ft-bar{
+  height:12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.08);
+  overflow:hidden;
+}
+
+.finance-terminal .ft-fill{
+  height:100%;
+  width:0%;
+  border-radius:999px;
+  background:linear-gradient(90deg, #2e7d32, #46d36a);
+  box-shadow:0 0 18px rgba(70,211,106,.22);
+  transition:width .6s ease;
+}
+
+.finance-terminal .ft-scale{
+  display:flex;
+  justify-content:space-between;
+  gap:.5rem;
+  margin-top:.55rem;
+  font-size:.78rem;
+  color:rgba(238,245,239,.55);
+}
+
+.finance-terminal{
+  align-self:start;
+}
+
+@media (max-width:900px){
+  .finance-terminal .ft-header{ align-items:flex-start; }
+}
+
+@media (max-width:520px){
+  .finance-terminal .ft-header{ align-items:center; }
+}
+
+@media (max-width:420px){
+  .finance-terminal .kpi-value{ font-size:1.05rem; }
+}
+
+
+/* =========================================================
+   9) CTA-BEREICH
+========================================================= */
+
+.cta-section{
+  background:rgba(255,246,233,.72);
+  border-top:1px solid var(--cta-border);
+  border-bottom:1px solid var(--cta-border);
+}
+
+.cta-grid{
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  gap:2rem;
+  align-items:start;
+}
+
+@media(min-width:900px){
+  .cta-grid{
+    grid-template-columns:1fr 2fr;
+    align-items:start;
+  }
+}
+
+.cta-card{
+  background:rgba(255,255,255,.82);
+  border:1px solid var(--cta-border);
+}
+
+.cta-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.75rem;
+  margin-top:.75rem;
+}
+
+
+/* =========================================================
+   10) DIREKTKREDIT-MODELLE
+   Desktop: 2-2-1 Layout, Goldmodell zentriert
+========================================================= */
+
+/* Grid Layout */
+
+.modell-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1.5rem;
+}
+
+@media (min-width:720px){
+  .modell-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    align-items:stretch;
+  }
+}
+
+
+/* Basis Box */
+
+.modell-box{
+  padding:1.5rem;
+  border-radius:14px;
+  border:2px solid #ddd;
+  color:#1f1f1f;
+
+  box-shadow:0 8px 22px rgba(0,0,0,.05);
+  transition:all .2s ease;
+}
+
+.modell-box h4,
+.modell-box p,
+.modell-box strong{
+  color:#1f1f1f;
+}
+
+
+/* Hover Effekt */
+
+.modell-box:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px rgba(0,0,0,.08);
+}
+
+
+/* 1 — Keramiktasse (Blau) */
+
+.modell-grid .modell-box:nth-child(1){
+  border-color:#2b6cb0;
+
+  background:
+  linear-gradient(
+    135deg,
+    #f7fbff 0%,
+    #eef4ff 55%,
+    #e9f0fb 100%
+  );
+}
+
+
+/* 2 — Rote Beete (Grün) */
+
+.modell-grid .modell-box:nth-child(2){
+  border-color:#2f855a;
+
+  background:
+  linear-gradient(
+    135deg,
+    #f8fff8 0%,
+    #eefaf1 55%,
+    #e7f5eb 100%
+  );
+}
+
+
+/* 3 — Ehrenmitgliedschaft (Rot) */
+
+.modell-grid .modell-box:nth-child(3){
+  border-color:#c53030;
+
+  background:
+  linear-gradient(
+    135deg,
+    #fff9f9 0%,
+    #fff0f0 55%,
+    #fde8e8 100%
+  );
+}
+
+
+/* 4 — Baum (Silber/Grau) */
+
+.modell-grid .modell-box:nth-child(4){
+  border-color:#a0aec0;
+
+  background:
+  linear-gradient(
+    135deg,
+    #fcfcfd 0%,
+    #f3f5f8 55%,
+    #eceff3 100%
+  );
+}
+
+
+/* Goldmodell */
+
+.modell-grid .modell-box.gold{
+  background:
+  linear-gradient(
+    135deg,
+    #fffdf4 0%,
+    #fff8dc 45%,
+    #fff3c4 100%
+  );
+
+  border-color:#d4af37;
+  box-shadow:0 0 18px rgba(212,175,55,.22);
+
+  padding:1.8rem;
+}
+
+
+/* Desktop Layout: Goldmodell über ganze Breite */
+
+@media (min-width:720px){
+
+  .modell-grid .modell-box.gold{
+    grid-column:1 / -1;
+    justify-self:center;
+    width:min(920px,100%);
+  }
+
+}
+
+  .contact-mail{
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+
+  background:#ffffff;
+  border:1px solid var(--border);
+  border-radius:12px;
+
+  padding:.7rem 1rem;
+  margin-top:1rem;
+
+  font-weight:500;
+  color:#1f1f1f;
+
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+
+.contact-mail a{
+  color:var(--brand);
+  text-decoration:none;
+}
+
+.contact-mail:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(0,0,0,.10);
+}
+
+.modell-box{
+  position: relative;
+  padding-right: 110px;
+  overflow: hidden;
+}
+
+.modell-icon{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 100px !important;
+  height: auto;
+  max-width: 200px;
+  z-index: 2;
+  display: block;
+  object-fit: contain;
+}
+
+/* =========================================================
+   11) LEUTE
+========================================================= */
+
+.leute-head{margin:0 0 1.25rem}
+
+.leute-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:1rem;
+  margin-top:1rem;
+}
+
+.person{
+  background:rgba(255,255,255,.88);
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+
+.person:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 26px rgba(0,0,0,.10);
+}
+
+.person-img{
+  aspect-ratio:4 / 3;
+  background:var(--bar-bg);
+  overflow:hidden;
+}
+
+.person-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.person-body{padding:1rem}
+.person-name{margin:0 0 .35rem;font-size:1.05rem}
+.person-text{margin:0;color:var(--muted);font-size:.95rem;line-height:1.45}
+
+@media (max-width:980px){
+  .leute-grid{grid-template-columns:repeat(3, minmax(0,1fr))}
+}
+@media (max-width:720px){
+  .leute-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
+}
+@media (max-width:420px){
+  .leute-grid{grid-template-columns:1fr}
+}
+
+
+/* =========================================================
+   12) FOOTER
+========================================================= */
+
+.footer{
+  border-top:1px solid var(--border);
+  padding:2rem 0;
+  color:var(--muted);
+  background:rgba(255,255,255,.35);
+}
+
+
+/* =========================================================
+   13) MOBILE NAV
+========================================================= */
+
+@media (max-width:700px){
+
+  .nav{
+    position:relative;
+    height:56px;
+    padding:.4rem 0;
+  }
+
+  .menu-toggle{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:44px;
+    height:44px;
+  }
+
+  .brand-text{
+    max-width:55vw;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .nav nav{
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:rgba(255,255,255,.98);
+    border-bottom:1px solid var(--border);
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    padding:1rem;
+    display:none;
+    flex-direction:column;
+    gap:.45rem;
+  }
+
+  .nav nav a{
+    margin:0;
+    border-radius:12px;
+    padding:.8rem .9rem;
+  }
+
+  .nav nav a:hover{
+    background:rgba(46,125,50,.08);
+  }
+
+  .nav nav a.btn{
+    width:100%;
+    justify-content:center;
+    margin-top:.25rem;
+  }
+
+  .nav.open nav{
+    display:flex;
+  }
+
+  header{
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+  }
+
+  header.shrink .nav{
+    height:52px;
+  }
+
+  header.shrink .brand-logo{
+    width:32px;
+    height:32px;
+  }
+}
+</style>
