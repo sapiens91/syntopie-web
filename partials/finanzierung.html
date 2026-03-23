@@ -2,6 +2,7 @@
 <section id="finanzierung" class="section anchor-space">
   <div class="container finanzierung-grid">
 
+    <!-- LINKE SPALTE-->
     <div class="card">
       <h2>Hauskauf und Direktkredite</h2>
       <p>
@@ -13,17 +14,16 @@
       <p>
         In den meisten Fällen sind die Direktkredite <i>endfällig</i> und haben einen Zins von weniger als 2%. Da die Laufzeit in der Regel mehrere Jahre beträgt, wird so die
         jährliche Zins- und Tilgungslast für uns deutlich reduziert. Daher suchen wir nach Direktkreditgebern, die mit uns einen indivduellen Kreditvertrag abschließen möchten.
-        </p>
-        <p>
+      </p>
+      <p>
         Wir wollen ganz transparent sein: Direktkredite sind vor allem ein solidarisches Instrument und bieten durch ihre geringe Verzinsung den Geber:innen kaum finanzelle Anreize. Ohne diese Kredite ist
         es uns allerdings kaum möglich, das Haus zu erwerben, hier zu sozialverträglichen Konditionen zu leben und das Gebäude gemeinsam mit dem Mietshäusersyndikat zu vergesellschaften. 
       </p>
-       <p>
-         Der Kaufpreis setzt sich üblicherweise aus dem Erwerb des Grundstücks, des Hauses und den Kaufnebenkosten zusammen. In unserem Fall werden wir voraussichtlich nur das Haus, nicht aber das Grundstück erwerben. Das Grundstück wollen wir von der besitzenden privaten Stiftung pachten: über einen Erbbauvertrag.
-         </p>
-         <p>
-         Ein Erbbauvertrag gilt für eine bestimmte Zeit, meist 99 Jahre, als baugleiches Recht. Die Pacht für das Grundstück berechnet sich durch den Erbbauzins. Neben den zu tilgenden Krediten wird die Pacht also vermutlich einen nicht unerheblichen Teil
-         unserer jährlichen Kosten ausmachen.
+      <p>
+        Der Kaufpreis setzt sich üblicherweise aus dem Erwerb des Grundstücks, des Hauses und den Kaufnebenkosten zusammen. In unserem Fall werden wir voraussichtlich nur das Haus, nicht aber das Grundstück erwerben. Das Grundstück wollen wir von der besitzenden privaten Stiftung pachten: über einen Erbbauvertrag.
+      </p>
+      <p>
+        Ein Erbbauvertrag gilt für eine bestimmte Zeit, meist 99 Jahre, als baugleiches Recht. Die Pacht für das Grundstück berechnet sich durch den Erbbauzins. Neben den zu tilgenden Krediten wird die Pacht also vermutlich einen nicht unerheblichen Teil unserer jährlichen Kosten ausmachen.
       </p>
       <p class="muted">
         Wenn du einen Direktkredit anbieten möchtest, findest du die Kontaktdaten und Kreditmodelle im Abschnitt „Direktkredit anbieten“ am Ende der Seite.
@@ -33,89 +33,109 @@
       </div>
     </div>
 
-<div class="card finance-terminal">
-  <div class="ft-header">
-    <div>
-      <h2 class="ft-title">Finanzierungsstand</h2>
-      <div class="ft-sub">Live-Übersicht · Direktkredite</div>
+    <!-- RECHTE SPALTE-->
+    <div class="finanzierung-rechts">
+
+      <!-- TERMINAL -->
+    <div class="card finance-terminal">
+    <div class="ft-header">
+      <div>
+        <h2 class="ft-title">Finanzierungsstand</h2>
+        <div class="ft-sub">Live-Übersicht · Direktkredite</div>
+      </div>
+
+      <div class="ft-badge">
+        <span class="dot"></span>
+        <span>LIVE</span>
+      </div>
     </div>
 
-    <div class="ft-badge">
-      <span class="dot"></span>
-      <span>LIVE</span>
+    <!-- KPI Grid -->
+    <div class="ft-kpis">
+      
+      <div class="kpi">
+        <div class="kpi-label">Kaufpreis (Schätzung)</div>
+        <div class="kpi-value" id="kpi-price">–</div>
+        <div class="kpi-hint">Orientierungswert</div>
+      </div>
+      
+      <div class="kpi">
+        <div class="kpi-label">Ziel Direktkredite</div>
+        <div class="kpi-value" id="kpi-goal">–</div>
+        <div class="kpi-hint">Zielmarke</div>
+      </div>
+
+      <div class="kpi">
+        <div class="kpi-label">Eingeworben</div>
+        <div class="kpi-value" id="kpi-current">–</div>
+        <div class="kpi-hint">Aktueller Stand</div>
+      </div>
+
+      <div class="kpi">
+        <div class="kpi-label">Abgeleitete Miete</div>
+        <div class="kpi-value" id="kpi-rent">–</div>
+        <div class="kpi-hint">€/m²</div>
+      </div>
+    </div>
+
+    <!-- “Ticker” -->
+    <div class="ft-ticker">
+      <div class="ticker-label">FORTSCHRITT</div>
+      <div id="progress-amounts" class="ticker-text">–</div>
+    </div>
+
+    <!-- Progress / “Chart bar” -->
+    <div class="ft-progress">
+      <div class="ft-progress-top">
+        <span class="muted">Erfüllung</span>
+        <span class="ft-percent" id="progress-percent">–</span>
+      </div>
+
+      <div class="progress-bar ft-bar">
+        <div class="progress-fill ft-fill" id="progress-fill"></div>
+      </div>
+      <div class="ft-scale">
+        <span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
+      </div>
     </div>
   </div>
 
-  <!-- KPI Grid -->
-  <div class="ft-kpis">
-    
-    <div class="kpi">
-      <div class="kpi-label">Kaufpreis (Schätzung)</div>
-      <div class="kpi-value" id="kpi-price">–</div>
-      <div class="kpi-hint">Orientierungswert</div>
-    </div>
-    
-    <div class="kpi">
-      <div class="kpi-label">Ziel Direktkredite</div>
-      <div class="kpi-value" id="kpi-goal">–</div>
-      <div class="kpi-hint">Zielmarke</div>
+      <!-- BILD -->
+      <div class="card image-card">
+        <img src="img/kosten.png" alt="Kosten">
+      </div>
+
     </div>
 
-    <div class="kpi">
-      <div class="kpi-label">Eingeworben</div>
-      <div class="kpi-value" id="kpi-current">–</div>
-      <div class="kpi-hint">Aktueller Stand</div>
-    </div>
-
-    <div class="kpi">
-      <div class="kpi-label">Abgeleitete Miete</div>
-      <div class="kpi-value" id="kpi-rent">–</div>
-      <div class="kpi-hint">€/m²</div>
-    </div>
   </div>
-
-  <!-- “Ticker” -->
-  <div class="ft-ticker">
-    <div class="ticker-label">FORTSCHRITT</div>
-    <div id="progress-amounts" class="ticker-text">–</div>
-  </div>
-
-  <!-- Progress / “Chart bar” -->
-  <div class="ft-progress">
-    <div class="ft-progress-top">
-      <span class="muted">Erfüllung</span>
-      <span class="ft-percent" id="progress-percent">–</span>
-    </div>
-
-    <div class="progress-bar ft-bar">
-      <div class="progress-fill ft-fill" id="progress-fill"></div>
-    </div>
-
-    <div class="ft-scale">
-      <span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
-    </div>
-  </div>
-</div>
 </section>
 
 <!-- SYNDIKAT -->
 <section id="syndikat" class="section anchor-space">
-  <div class="container card">
-    <h2>Mietshäusersyndikat</h2>
-    <p>
-      Stand jetzt streben wir an, als Verein und GmbH dem Mietshäusersyndikat beizutreten.
-      Unsere Motivation ist dabei, dass das Haus dauerhaft gemeinschaftlich genutzt wird und nicht in privaten Besitz zurückfallen kann.
+  <div class="container grid grid-2">
+
+    <div class="card">
+      <h2>Mietshäusersyndikat</h2>
+      <p>
+        Stand jetzt streben wir an, als Verein und GmbH dem Mietshäusersyndikat beizutreten.
+        Unsere Motivation ist dabei, dass das Haus dauerhaft gemeinschaftlich genutzt wird und nicht in privaten Besitz zurückfallen kann.
       </p>
       <p>
-      Das Mietshäusersyndikat ist ein Zusammenschluss aus derzeit rund 130 Wohnprojekten. Die Projekte unterstützen sich gegenseitig. Das Konzept, dass das Mietshäusersyndikat als zweiter Gesellschafter mit Vetorecht gegen den Verkauf an jeder der Projekt-GmbHs beteiligt ist, entzieht die Immobilien der Mitglieder dauerhaft dem Mietmarkt.
+        Das Mietshäusersyndikat ist ein Zusammenschluss aus derzeit rund 130 Wohnprojekten.
+        Die Projekte unterstützen sich gegenseitig. Die Idee ist es die Immoblien dauerhaft dem Markt zu entziehen, um so bezahlbaren Wohnraum zu schaffen.
+        Das Syndikat tritt hierbei als zweiter Gesellschafter der GmbH auf, die das Haus erwirbt. Dadurch wird sichergestellt, dass die Immobilie nicht verkauft
+        werden kann und stattdessen dauerhaft gemeinschaftlich genutzt wird. Das Mietshäusersyndikat bietet außerdem Beratung und Unterstützung bei der Planung,
+        Finanzierung und Umsetzung von Projekten. Es ist also ein wichtiger Partner für uns, um unser Vorhaben erfolgreich umzusetzen.
       </p>
+      <p>Für weitere Informationen verweisen wir gerne auf die Website:</p>
+      <a href="https://www.syndikat.org/" class="btn">
+         Mietshäusersyndikat
+      </a>
+    </div>
 
-    <p>
-      Für weitere Informationen:
-    </p>
-    <a href="https://www.syndikat.org/">Mietshäusersyndikat</a>
-     <figure class="card" style="max-width:500px;">
-       <img src="img/MiSy_Dia.gif" alt="Diagramm">
-     </figure>
+    <figure class="card">
+      <img src="img/MiSy_Dia.gif" alt="Diagramm zum Mietshäusersyndikat">
+    </figure>
+
   </div>
 </section>

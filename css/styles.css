@@ -313,7 +313,7 @@ header.shrink .brand-text{ font-size:1.02rem; }
   border:1px solid var(--border);
   border-radius:16px;
   padding:1.25rem;
-  backdrop-filter:blur(2px);
+  backdrop-filter:none;
 }
 
 .card img{
@@ -355,6 +355,13 @@ header.shrink .brand-text{ font-size:1.02rem; }
 .finanzierung-grid{
   display:grid;
   gap:1.25rem;
+  margin-top: 1.5rem;
+}
+
+.finanzierung-rechts{
+  display:flex;
+  flex-direction:column;
+  gap:clamp(1rem, 2vw, 2rem);
 }
 
 @media(min-width:900px){
@@ -580,9 +587,9 @@ header.shrink .brand-text{ font-size:1.02rem; }
 ========================================================= */
 
 .cta-section{
-  background:rgba(255,246,233,.72);
-  border-top:1px solid var(--cta-border);
-  border-bottom:1px solid var(--cta-border);
+  background: transparent;
+  border: 3px solid rgba(255, 246, 233, 0.9);
+  border-radius: 18px;
 }
 
 .cta-grid{
@@ -600,8 +607,9 @@ header.shrink .brand-text{ font-size:1.02rem; }
 }
 
 .cta-card{
-  background:rgba(255,255,255,.82);
-  border:1px solid var(--cta-border);
+  background: transparent;
+  border: 3px solid rgba(255, 246, 233, 0.9);
+  border-radius: 18px;
 }
 
 .cta-actions{
