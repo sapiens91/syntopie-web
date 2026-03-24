@@ -587,8 +587,8 @@ header.shrink .brand-text{ font-size:1.02rem; }
 ========================================================= */
 
 .cta-section{
-  background: transparent;
-  border: 3px solid rgba(255, 246, 233, 0.9);
+  background: rgba(255, 227, 188, 0.9);
+  border: 3px solid rgba(255, 154, 11, 0.9);
   border-radius: 18px;
 }
 
@@ -607,8 +607,8 @@ header.shrink .brand-text{ font-size:1.02rem; }
 }
 
 .cta-card{
-  background: transparent;
-  border: 3px solid rgba(255, 246, 233, 0.9);
+  background: rgba(255, 227, 188, 0.9);
+  border: 3px solid rgba(255, 154, 11, 0.9);
   border-radius: 18px;
 }
 
