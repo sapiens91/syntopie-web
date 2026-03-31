@@ -670,7 +670,7 @@ header.shrink .brand-text{ font-size:1.02rem; }
 .modell-grid{
   display:grid;
   grid-template-columns:1fr;
-  gap:1.5rem;
+  gap:1.6rem;
 }
 
 @media (min-width:720px){
@@ -684,13 +684,27 @@ header.shrink .brand-text{ font-size:1.02rem; }
 /* Basis Box */
 
 .modell-box{
-  padding:1.5rem;
-  border-radius:14px;
+  position:relative;
+  overflow:hidden;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  min-height:260px;
+
+  padding:1.6rem 1.55rem 1.5rem;
+  border-radius:18px;
   border:2px solid #ddd;
   color:#1f1f1f;
 
-  box-shadow:0 8px 22px rgba(0,0,0,.05);
-  transition:all .2s ease;
+  box-shadow:
+    0 8px 22px rgba(0,0,0,.05),
+    inset 0 1px 0 rgba(255,255,255,.35);
+
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease;
 }
 
 .modell-box h4,
@@ -699,12 +713,32 @@ header.shrink .brand-text{ font-size:1.02rem; }
   color:#1f1f1f;
 }
 
+.modell-box h4{
+  margin:0 0 1rem;
+  font-size:1.05rem;
+  line-height:1.35;
+  font-weight:800;
+  padding-right:130px;
+}
+
+.modell-box p{
+  margin:.4rem 0;
+  line-height:1.55;
+  font-size:1rem;
+}
+
+.modell-box p strong{
+  font-weight:800;
+}
+
 
 /* Hover Effekt */
 
 .modell-box:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 28px rgba(0,0,0,.08);
+  transform:translateY(-4px);
+  box-shadow:
+    0 14px 30px rgba(0,0,0,.08),
+    inset 0 1px 0 rgba(255,255,255,.35);
 }
 
 
@@ -712,14 +746,13 @@ header.shrink .brand-text{ font-size:1.02rem; }
 
 .modell-grid .modell-box:nth-child(1){
   border-color:#2b6cb0;
-
   background:
-  linear-gradient(
-    135deg,
-    #f7fbff 0%,
-    #eef4ff 55%,
-    #e9f0fb 100%
-  );
+    linear-gradient(
+      135deg,
+      #f7fbff 0%,
+      #eef4ff 55%,
+      #e9f0fb 100%
+    );
 }
 
 
@@ -727,29 +760,27 @@ header.shrink .brand-text{ font-size:1.02rem; }
 
 .modell-grid .modell-box:nth-child(2){
   border-color:#2f855a;
-
   background:
-  linear-gradient(
-    135deg,
-    #f8fff8 0%,
-    #eefaf1 55%,
-    #e7f5eb 100%
-  );
+    linear-gradient(
+      135deg,
+      #f8fff8 0%,
+      #eefaf1 55%,
+      #e7f5eb 100%
+    );
 }
 
 
-/* 3 — Ehrenmitgliedschaft (Rot) */
+/* 3 — Ehrenmitgliedschaft / Gemälde (Rot) */
 
 .modell-grid .modell-box:nth-child(3){
   border-color:#c53030;
-
   background:
-  linear-gradient(
-    135deg,
-    #fff9f9 0%,
-    #fff0f0 55%,
-    #fde8e8 100%
-  );
+    linear-gradient(
+      135deg,
+      #fff9f9 0%,
+      #fff0f0 55%,
+      #fde8e8 100%
+    );
 }
 
 
@@ -757,48 +788,56 @@ header.shrink .brand-text{ font-size:1.02rem; }
 
 .modell-grid .modell-box:nth-child(4){
   border-color:#a0aec0;
-
   background:
-  linear-gradient(
-    135deg,
-    #fcfcfd 0%,
-    #f3f5f8 55%,
-    #eceff3 100%
-  );
+    linear-gradient(
+      135deg,
+      #fcfcfd 0%,
+      #f3f5f8 55%,
+      #eceff3 100%
+    );
 }
 
 
 /* Goldmodell */
 
 .modell-grid .modell-box.gold{
+  padding:1.85rem 1.7rem 1.7rem;
+  min-height:240px;
+
   background:
-  linear-gradient(
-    135deg,
-    #fffdf4 0%,
-    #fff8dc 45%,
-    #fff3c4 100%
-  );
+    linear-gradient(
+      135deg,
+      #fffdf4 0%,
+      #fff8dc 45%,
+      #fff3c4 100%
+    );
 
   border-color:#d4af37;
-  box-shadow:0 0 18px rgba(212,175,55,.22);
+  box-shadow:
+    0 0 18px rgba(212,175,55,.22),
+    0 10px 28px rgba(0,0,0,.05),
+    inset 0 1px 0 rgba(255,255,255,.35);
+}
 
-  padding:1.8rem;
+.modell-grid .modell-box.gold h4{
+  padding-right:150px;
 }
 
 
 /* Desktop Layout: Goldmodell über ganze Breite */
 
 @media (min-width:720px){
-
   .modell-grid .modell-box.gold{
     grid-column:1 / -1;
     justify-self:center;
     width:min(920px,100%);
   }
-
 }
 
-  .contact-mail{
+
+/* Kontaktfeld */
+
+.contact-mail{
   display:inline-flex;
   align-items:center;
   gap:.6rem;
@@ -814,6 +853,7 @@ header.shrink .brand-text{ font-size:1.02rem; }
   color:#1f1f1f;
 
   box-shadow:0 6px 18px rgba(0,0,0,.06);
+  transition:transform .2s ease, box-shadow .2s ease;
 }
 
 .contact-mail a{
@@ -826,22 +866,73 @@ header.shrink .brand-text{ font-size:1.02rem; }
   box-shadow:0 10px 24px rgba(0,0,0,.10);
 }
 
-.modell-box{
-  position: relative;
-  padding-right: 110px;
-  overflow: hidden;
+
+/* Icon-Bereich */
+
+.modell-icons{
+  position:absolute;
+  top:16px;
+  right:16px;
+
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
 }
 
-.modell-icon{
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 100px !important;
-  height: auto;
-  max-width: 200px;
-  z-index: 2;
-  display: block;
-  object-fit: contain;
+.modell-icons img{
+  width:100px;
+  height:100px;
+  object-fit:contain;
+  display:block;
+
+  filter:drop-shadow(0 4px 10px rgba(0,0,0,.10));
+}
+
+.modell-box.gold .modell-icons img{
+  width:100px;
+  height:100px;
+}
+
+
+/* Etwas mehr Luft unter den Icons */
+
+.modell-box .modell-icons + h4{
+  margin-top:0;
+}
+
+
+/* Mobile Feinschliff */
+
+@media (max-width:719px){
+  .modell-box{
+    min-height:auto;
+    padding:1.35rem 1.2rem 1.25rem;
+  }
+
+  .modell-box h4{
+    font-size:1rem;
+    padding-right:105px;
+  }
+
+  .modell-box.gold h4{
+    padding-right:115px;
+  }
+
+  .modell-icons{
+    top:14px;
+    right:14px;
+    gap:8px;
+  }
+
+  .modell-icons img{
+    width:50px;
+    height:50px;
+  }
+
+  .modell-box.gold .modell-icons img{
+    width:60px;
+    height:60px;
+  }
 }
 
 /* =========================================================
