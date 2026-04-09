@@ -3,11 +3,25 @@ async function loadIncludes() {
 
   for (const el of elements) {
     const file = el.getAttribute("data-include");
-    const response = await fetch(file);
-    el.innerHTML = await response.text();
+
+    try {
+      const response = await fetch(file);
+
+      if (!response.ok) {
+        console.error(`Include konnte nicht geladen werden: ${file}`);
+        continue;
+      }
+
+      el.innerHTML = await response.text();
+    } catch (error) {
+      console.error(`Fehler beim Laden von ${file}:`, error);
+    }
   }
 
   initMobileMenu();
+
+  // Wichtig: Signal an andere Skripte, dass jetzt alles geladen ist
+  document.dispatchEvent(new Event("includesLoaded"));
 }
 
 function initMobileMenu() {
