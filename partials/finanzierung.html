@@ -13,7 +13,7 @@
       </p>
       <p>
         In den meisten Fällen sind die Direktkredite <i>endfällig</i> und haben einen Zins von weniger als 2%. Da die Laufzeit in der Regel mehrere Jahre beträgt, wird so die
-        jährliche Zins- und Tilgungslast für uns deutlich reduziert. Daher suchen wir nach Direktkreditgeber:innen, die mit uns einen indivduellen Kreditvertrag abschließen möchten.
+        jährliche Zins- und Tilgungslast für uns deutlich reduziert. Daher suchen wir nach Direktkreditgeber:innen, die mit uns einen indivduellen Kreditvertrag abschließen möchten. Außerdem handelt es sich bei den Direktkrediten um Nachrangsdarlehen, das heißt, dass im Falle einer Insolvenz der GmbH die Rückzahlung des Bankkredites vorrang hat. Dieser Fall ist allerdings mehr als unwahrscheinlich, da die GmbH nur das Haus erwerben und verwalten wird, nicht aber wirtschaftlich tätig sein wird. Das Risiko für Direktkreditgeber:innen ist daher vergleichsweise gering.
       </p>
       <p>
         Wir wollen ganz transparent sein: Direktkredite sind vor allem ein solidarisches Instrument und bieten durch ihre geringe Verzinsung den Geber:innen kaum finanzelle Anreize. Ohne diese Kredite ist
@@ -25,7 +25,7 @@
       <p>
         Ein Erbbauvertrag gilt für eine bestimmte Zeit, meist 99 Jahre, als baugleiches Recht. Die Pacht für das Grundstück berechnet sich durch den Erbbauzins. Neben den zu tilgenden Krediten wird die Pacht also vermutlich einen nicht unerheblichen Teil unserer jährlichen Kosten ausmachen.
       </p>
-      <p class="muted">
+      <p>
         Wenn ihr einen Direktkredit anbieten möchtet, findet ihr die Kontaktdaten und Kreditmodelle im Abschnitt „Direktkredit anbieten“ am Ende der Seite.
       </p>
       <div class="cta-actions">
@@ -40,72 +40,111 @@
     <div class="card finance-terminal">
     <div class="ft-header">
       <div>
-        <h2 class="ft-title">Finanzierungsstand</h2>
-        <div class="ft-sub">Live-Übersicht · Direktkredite</div>
-      </div>
-
-      <div class="ft-badge">
-        <span class="dot"></span>
-        <span>LIVE</span>
+        <h2 class="ft-title">Kennzahlen</h2>
+        <div class="ft-sub">Übersicht über alle wichtigen Zahlen</div>
       </div>
     </div>
 
     <!-- KPI Grid -->
-    <div class="ft-kpis">
-      
-      <div class="kpi">
-        <div class="kpi-label">Kaufpreis (Schätzung)</div>
-        <div class="kpi-value" id="kpi-price">–</div>
-        <div class="kpi-hint">Orientierungswert</div>
-      </div>
-      
-      <div class="kpi">
-        <div class="kpi-label">Ziel Direktkredite</div>
-        <div class="kpi-value" id="kpi-goal">–</div>
-        <div class="kpi-hint">Zielmarke</div>
-      </div>
+<div class="ft-kpis">
 
-      <div class="kpi">
-        <div class="kpi-label">Eingeworben</div>
-        <div class="kpi-value" id="kpi-current">–</div>
-        <div class="kpi-hint">Aktueller Stand</div>
-      </div>
-
-      <div class="kpi">
-        <div class="kpi-label">Abgeleitete Miete</div>
-        <div class="kpi-value" id="kpi-rent">–</div>
-        <div class="kpi-hint">€/m²</div>
-      </div>
-    </div>
-
-    <!-- “Ticker” -->
-    <div class="ft-ticker">
-      <div class="ticker-label">FORTSCHRITT</div>
-      <div id="progress-amounts" class="ticker-text">–</div>
-    </div>
-
-    <!-- Progress / “Chart bar” -->
-    <div class="ft-progress">
-      <div class="ft-progress-top">
-        <span class="muted">Erfüllung</span>
-        <span class="ft-percent" id="progress-percent">–</span>
-      </div>
-
-      <div class="progress-bar ft-bar">
-        <div class="progress-fill ft-fill" id="progress-fill"></div>
-      </div>
-      <div class="ft-scale">
-        <span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
-      </div>
-    </div>
+  <div class="kpi">
+    <div class="kpi-label">Kaufpreis (Schätzung)</div>
+    <div class="kpi-value" id="kpi-price">–</div>
+    <div class="kpi-hint">Orientierungswert</div>
   </div>
 
-      <!-- BILD -->
-      <div class="card image-card">
-        <img src="img/kosten.png" alt="Kosten">
-      </div>
+  <div class="kpi">
+    <div class="kpi-label">Ziel Direktkredite</div>
+    <div class="kpi-value" id="kpi-goal">–</div>
+    <div class="kpi-hint">Zielmarke</div>
+  </div>
 
+  <div class="kpi">
+    <div class="kpi-label">Wohnfläche</div>
+    <div class="kpi-value" id="kpi-area">–</div>
+    <div class="kpi-hint">m²</div>
+  </div>
+
+  <div class="kpi">
+    <div class="kpi-label">Bewohner:innen</div>
+    <div class="kpi-value" id="kpi-residents">–</div>
+    <div class="kpi-hint">geplant</div>
+  </div>
+
+</div>
+
+<!-- Projektphase -->
+<div class="ft-ticker">
+  <div class="ticker-label">PROJEKTPHASE</div>
+  <div id="phase-text" class="ticker-text">–</div>
+</div>
+
+<!-- Progress / Projektphase -->
+<div class="ft-progress">
+  <div class="ft-progress-top">
+    <span class="muted">Aktueller Stand</span>
+    <span class="ft-percent" id="phase-label">–</span>
+  </div>
+
+  <div class="progress-bar ft-bar">
+    <div class="progress-fill ft-fill" id="progress-fill"></div>
+  </div>
+
+  <div class="ft-scale">
+    <span>Objektsuche</span>
+    <span>Direktkredite</span>
+    <span>Kaufabwicklung</span>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<section id="GmbH" class="section anchor-space">
+  <div class="container">
+
+    <!-- GmbH -->
+    <div class="card">
+      <h2>Funktion der GmbH</h2>
+
+      <p>
+        Für den Kauf des Hauses gründen wir eine Hausbesitz-GmbH. Diese Gesellschaft
+        übernimmt den Erwerb der Immobilie und schließt die erforderlichen Verträge
+        mit Banken, Direktkreditgeber:innen und den Bewohner:innen ab.
+      </p>
+
+      <p>
+        Die GmbH ist Eigentümerin des Hauses und verwaltet die Finanzierung.
+        Die Bewohner:innen zahlen Miete an die GmbH. Mit diesen Einnahmen werden
+        laufende Kosten gedeckt sowie Zinsen und Tilgungen für Bank- und
+        Direktkredite geleistet. Gleichzeitig sichert die Struktur des
+        Mietshäusersyndikats, dass das Haus dauerhaft dem spekulativen Immobilienmarkt
+        entzogen bleibt.
+      </p>
+
+      <p>
+        Das folgende Schaubild zeigt die wichtigsten Geld- und Vertragsbeziehungen
+        zwischen Verkäufer, Hausbesitz-GmbH, Bewohner:innen, Bank und
+        Direktkreditgeber:innen.
+      </p>
     </div>
+
+<br>
+
+<div class="card">
+  <img
+    src="img/GmBH_Funktion.png"
+    alt="Diagramm zur Funktion der Hausbesitz-GmbH"
+    style="
+      max-width:900px;
+      width:100%;
+      height:auto;
+      display:block;
+      margin:0 auto;
+    "
+  >
+</div>
 
   </div>
 </section>
